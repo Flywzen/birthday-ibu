@@ -1,8 +1,8 @@
-# For Ayah — React
+# For Mama — React
 
-Website ulang tahun personal untuk Ayah. Migrasi dari HTML/CSS/JS vanilla ke
-React + Vite + Tailwind CSS + Framer Motion, tetap sebagai one-page site
-(bukan web app), tema aviasi / langit malam / flight log dipertahankan.
+Website ulang tahun personal untuk Mama. Dibangun dengan React + Vite +
+Tailwind CSS + Framer Motion sebagai one-page tribute site. Tema: floral /
+botanical / soft pink & green — hangat, elegan, feminin.
 
 ## Menjalankan secara lokal
 
@@ -18,34 +18,45 @@ npm run build   # output ke folder dist/
 npm run preview # preview hasil build secara lokal
 ```
 
-## Foto yang perlu kamu tambahkan
-
-Project lama yang di-upload tidak menyertakan folder `assets/images/`
-(foto-foto Ayah), jadi tidak ada satu pun yang "dikarang" di sini. Tinggal
-taruh file dengan **nama persis** seperti tabel berikut ke
-`public/assets/images/`:
-
-| Nama file | Dipakai di |
-|---|---|
-| `photo-hero.jpg` | Latar belakang Hero |
-| `photo-tl1.jpg` … `photo-tl6.jpg` | 6 foto di Flight Timeline |
-| `photo-b1.jpg` … `photo-b6.jpg` | Photo Highlights (bento grid) |
-| `photo-b1.jpg` … `photo-b5.jpg` | Gallery slider (reuse foto bento, sama seperti project lama) |
-| `photo-s1.jpg` … `photo-s5.jpg` | Filmstrip |
-| `photo-p1.jpg` … `photo-p3.jpg` | Polaroid di section surat |
-
-Selama foto belum ada, tiap slot otomatis menampilkan placeholder
-(emoji + gradient) — bukan ikon gambar rusak. Kalau format fotomu bukan
-`.jpg`, tinggal ubah field `image` yang bersangkutan di
-`src/data/content.js`.
-
-`assets/gif/hero.gif` dan `assets/music/bgm.mp3` sudah dibawa langsung dari
-project lama, tidak perlu ditambahkan ulang.
-
 ## Mengubah konten
 
-Semua wording personal (nama, tanggal, isi surat, quote, caption) ada di
-**satu file**: `src/data/content.js`. Komponen tidak punya teks hardcoded.
+Semua wording personal ada di **satu file**: `src/data/content.js`.
+Komponen tidak menyimpan teks hardcoded. Cari komentar `// TODO` untuk
+bagian yang perlu disesuaikan:
+
+| Field | Lokasi | Keterangan |
+|---|---|---|
+| `profile.birthDate` | `content.js` | Tanggal lahir asli, format `YYYY-MM-DD` |
+| `timeline.items` | `content.js` | 5 milestone keluarga dengan tanggal & cerita nyata |
+| `timeline.todayItem.title` | `content.js` | Ganti `[USIA]` dengan usia asli Mama |
+| `letter.paragraphs` | `content.js` | Isi surat dari keluarga (ganti juga `[USIA]` di paragraf ke-8) |
+| `traits.items` | `content.js` | 8 hal yang dicintai dari Mama — sesuaikan dengan cerita nyata |
+| `quotes.slides` | `content.js` | 5 kutipan / doa (sudah ada placeholder yang layak pakai) |
+
+## Musik
+
+Ganti file `public/assets/music/bgm.mp3` dengan lagu instrumental / lo-fi
+yang diinginkan. Nama file harus tetap `bgm.mp3`, atau ubah path-nya di
+`src/components/MusicPlayer.jsx`.
+
+## Foto
+
+Versi ini **tidak menggunakan foto sama sekali**. Semua section menggunakan
+botanical icon, gradient, dan ilustrasi SVG sebagai pengganti visual. Tidak
+perlu menambahkan file gambar apa pun.
+
+## Struktur section
+
+```
+Hero          → sambutan + typewriter + age counter
+Stats Strip   → tahun / bulan / hari bersama Mama
+Timeline      → perjalanan hidup Mama (botanical icon cards)
+Trait Grid    → "Things We Love About You" (8 kartu)
+Quote Cards   → kutipan & doa (carousel geser)
+Letter        → surat dengan envelope interaktif
+Footer        → penutup
+Music Player  → floating, persisten
+```
 
 ## Deploy ke Vercel
 
@@ -55,7 +66,7 @@ Semua wording personal (nama, tanggal, isi surat, quote, caption) ada di
    `vite build`, output directory `dist`. Tidak perlu mengubah apa pun.
 4. Deploy.
 
-Atau lewat CLI tanpa hubungkan repo dulu:
+Atau lewat CLI:
 
 ```bash
 npm i -g vercel
