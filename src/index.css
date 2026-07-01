@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   Design tokens — soft floral/botanical palette for Mama's tribute page.
+   Defined via @theme (Tailwind v4) so they become utility classes directly:
+   text-moss, bg-cream, font-title, animate-glow-drift, etc. — no separate
+   tailwind.config.js needed.
+   ============================================================================ */
+@theme {
+  /* Core palette, sourced from the customer's floral moodboard. */
+  --color-cream: #fff8f8;
+  --color-blush-pale: #fee0e9;
+  --color-rose: #f7cac9;
+  --color-blush: #f5c9d4;
+  --color-sage: #c7dd9d;
+  --color-moss: #8da65c;
+  --color-moss-deep: #6e8347;
+  --color-text: #4a4a4a;
+  --color-text-soft: #4a4a4a99;
+
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Manrope', sans-serif;
+
+  /* Decorative animation — all CSS-only (no Framer Motion, no JS loop),
+     kept slow and subtle so the page feels calm rather than busy. Framer
+     Motion is reserved for entrances, section reveals, carousel transitions,
+     and the letter-envelope interaction. */
+  --animate-glow-drift: glow-drift 90s ease-in-out infinite alternate;
+  --animate-seal-pulse: seal-pulse 2.5s ease-in-out infinite;
+  --animate-music-pulse: music-pulse 2s ease-in-out infinite;
+  --animate-eq-bar: eq-bar 0.55s ease-in-out infinite alternate;
+  --animate-scroll-bounce: scroll-bounce 2s ease-in-out infinite;
+  --animate-icon-pulse: icon-pulse 1.8s ease-in-out infinite;
+  --animate-cursor-blink: cursor-blink 0.75s step-end infinite;
+  --animate-petal-drift: petal-drift linear infinite;
+  --animate-sway: sway 6s ease-in-out infinite;
+}
+
+@keyframes glow-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(36px, -20px) scale(1.06);
+  }
+}
+@keyframes seal-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 16px rgba(141, 166, 92, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(141, 166, 92, 0.5);
+  }
+}
+@keyframes music-pulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 16px rgba(74, 74, 74, 0.12), 0 0 18px rgba(141, 166, 92, 0.18);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(74, 74, 74, 0.14), 0 0 26px rgba(141, 166, 92, 0.3);
+  }
+}
+@keyframes eq-bar {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0.25);
+  }
+}
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+@keyframes icon-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes petal-drift {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate(var(--drift, 20px), -110vh) rotate(var(--spin, 90deg));
+  }
+}
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* ============================================================================
+   Base
+   ============================================================================ */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-cream);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-blush-pale);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(141, 166, 92, 0.38);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(141, 166, 92, 0.6);
+}
+
+/* One global block for all animation/transition reduction — no need to
+   repeat this in every component. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
