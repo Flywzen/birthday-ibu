@@ -91,6 +91,10 @@ export default function TimelineChapter() {
             </p>
           </motion.div>
         ))}
+        {/* Trailing spacer: without this, snap-center can't always reach the
+            last card on a real swipe, because centering it needs more scroll
+            room than the container has. This guarantees that room. */}
+        <div className="w-[45vw] shrink-0 sm:w-[30vw]" aria-hidden="true" />
       </motion.div>
     </section>
   );

@@ -11,8 +11,7 @@
 
 export const profile = {
   name: 'Mama',
-  // TODO: Ganti dengan tanggal lahir asli. Format: YYYY-MM-DD
-  birthDate: '1970-05-10',
+  birthDate: '1974-07-31',
 };
 
 export const meta = {
