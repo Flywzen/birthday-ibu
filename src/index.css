@@ -21,6 +21,13 @@
   --font-title: 'Playfair Display', serif;
   --font-body: 'Manrope', sans-serif;
 
+  /* Shared easing tokens — used across CSS animations AND framer-motion
+     transitions (import as an array in JS). Keep it to two curves:
+     - `soft`   → gentle, decelerating, for entrances & label swaps.
+     - `spring` → snappy overshoot-ish, for hover/tap feedback in CSS. */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
   /* Decorative animation — all CSS-only (no Framer Motion, no JS loop),
      kept slow and subtle so the page feels calm rather than busy. Framer
      Motion is reserved for entrances, section reveals, carousel transitions,
@@ -34,6 +41,12 @@
   --animate-icon-pulse: icon-pulse 1.8s ease-in-out infinite;
   --animate-cursor-blink: cursor-blink 0.75s step-end infinite;
   --animate-petal-drift: petal-drift linear infinite;
+
+  /* Motion polish — reusable ambient loops for shared components. */
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.6s ease-out infinite;
+  --animate-progress-shimmer: progress-shimmer 3.2s linear infinite;
+  --animate-divider-glow: divider-glow 4.5s ease-in-out infinite;
 }
 
 @keyframes glow-drift {
@@ -118,6 +131,55 @@
     transform: translate(var(--drift, 20px), -110vh) rotate(var(--spin, 90deg));
   }
 }
+
+/* Watermark numerals + decorative badges — gentle vertical drift so
+   backgrounds feel alive without ever pulling the eye. */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  50% {
+    transform: translate3d(-50%, -6px, 0);
+  }
+}
+/* Soft radial pulse used behind the active chapter dot / tap targets. */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+/* A soft highlight traveling across the top progress bar. */
+@keyframes progress-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+/* Section-heading divider — subtle glow that breathes after the draw-in. */
+@keyframes divider-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 0 rgba(141, 166, 92, 0));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(141, 166, 92, 0.35));
+  }
+}
+
 /* ============================================================================
    Base
    ============================================================================ */
@@ -128,6 +190,30 @@ body {
   background: var(--color-cream);
   color: var(--color-text);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Global interactive-element polish — every button/link gets a consistent
+   press-in feel, without each component having to opt in. Framer Motion's
+   whileTap still wins where it's applied. */
+button,
+a {
+  transition: transform 220ms var(--ease-soft), color 220ms var(--ease-soft),
+    background-color 220ms var(--ease-soft), border-color 220ms var(--ease-soft),
+    box-shadow 220ms var(--ease-soft), opacity 220ms var(--ease-soft);
+}
+button:active,
+a:active {
+  transform: translateY(0.5px);
+}
+
+/* Utility: soft moss focus ring for keyboard nav — used by ChapterNav /
+   ChapterTopBar / ChapterMenu buttons. */
+.focus-moss:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 248, 248, 1), 0 0 0 4px rgba(141, 166, 92, 0.55);
 }
 
 ::-webkit-scrollbar {

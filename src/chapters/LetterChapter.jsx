@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import SectionHeading from '../components/common/SectionHeading';
+import OpeningEmblem from '../components/common/OpeningEmblem';
 import { letter } from '../data/content';
-import { loadConfetti } from '../utils/confetti';
 
 const letterParaVariants = {
   hidden: {},
@@ -72,8 +73,7 @@ export default function LetterChapter() {
 
     if (!hasFired && !prefersReducedMotion) {
       setHasFired(true);
-      setTimeout(async () => {
-        const confetti = await loadConfetti();
+      setTimeout(() => {
         confetti({
           particleCount: 70,
           spread: 70,
@@ -117,7 +117,7 @@ export default function LetterChapter() {
             aria-label={letter.openAriaLabel}
             onClick={openLetter}
             onKeyDown={handleKeyDown}
-            className="mx-auto flex w-fit cursor-pointer flex-col items-center gap-4"
+            className="group mx-auto flex w-fit cursor-pointer flex-col items-center gap-4"
             whileHover={{ y: -6, scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 320, damping: 24 }}
@@ -178,7 +178,7 @@ export default function LetterChapter() {
               </div>
 
               <div
-                className="animate-seal-pulse absolute left-1/2 top-1/2 z-40 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-2xl"
+                className="animate-seal-pulse absolute left-1/2 top-1/2 z-40 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
                 style={{
                   background: 'linear-gradient(135deg, #F7CAC9 0%, #F5C9D4 100%)',
                   border: '2.5px solid rgba(141,166,92,0.6)',
@@ -186,7 +186,9 @@ export default function LetterChapter() {
                     '0 0 0 4px rgba(141,166,92,0.08), 0 4px 20px rgba(247,202,201,0.4)',
                 }}
               >
-                🌸
+                <div className="h-9 w-9">
+                  <OpeningEmblem variant="icon" />
+                </div>
               </div>
             </div>
           </motion.div>
