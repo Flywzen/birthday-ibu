@@ -7,7 +7,7 @@ import { chapters } from '../../data/content';
  * chapter-progress line, the current chapter's name, and a small menu
  * trigger that opens the full chapter list (ChapterMenu).
  */
-export default function ChapterTopBar({ index, total, onOpenMenu }) {
+export default function ChapterTopBar({ index, total, menuOpen, onOpenMenu }) {
   const current = chapters[index];
   const progress = ((index + 1) / total) * 100;
 
@@ -47,6 +47,9 @@ export default function ChapterTopBar({ index, total, onOpenMenu }) {
           type="button"
           onClick={onOpenMenu}
           aria-label="Buka daftar bab"
+          aria-haspopup="dialog"
+          aria-expanded={menuOpen}
+          aria-controls="chapter-menu-dialog"
           className="flex h-7 w-7 items-center justify-center rounded-full"
           style={{ color: '#8DA65C' }}
         >

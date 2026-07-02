@@ -33,8 +33,8 @@ const pageVariants = {
 };
 
 export default function App() {
-  const nav = useChapterNavigation(CHAPTER_COMPONENTS.length);
   const [menuOpen, setMenuOpen] = useState(false);
+  const nav = useChapterNavigation(CHAPTER_COMPONENTS.length, { keyboardDisabled: menuOpen });
   const [hasInteracted, setHasInteracted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -55,6 +55,7 @@ export default function App() {
           <ChapterTopBar
             index={index}
             total={CHAPTER_COMPONENTS.length}
+            menuOpen={menuOpen}
             onOpenMenu={() => setMenuOpen(true)}
           />
           <ChapterNav

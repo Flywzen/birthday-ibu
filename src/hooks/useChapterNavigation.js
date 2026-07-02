@@ -14,7 +14,7 @@ const SWIPE_THRESHOLD = 52;
  * slide carousel), no routing library. See README for why routing isn't
  * needed here.
  */
-export function useChapterNavigation(totalChapters) {
+export function useChapterNavigation(totalChapters, { keyboardDisabled = false } = {}) {
   const [phase, setPhase] = useState('cover');
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -45,15 +45,17 @@ export function useChapterNavigation(totalChapters) {
   const goPrev = useCallback(() => goTo(index - 1), [goTo, index]);
 
   // Keyboard: ArrowRight/ArrowLeft to move between chapters once opened.
+  // Suspended while keyboardDisabled (e.g. the fullscreen chapter menu is
+  // open) so background chapters don't silently change under a modal.
   useEffect(() => {
-    if (phase !== 'chapters') return undefined;
+    if (phase !== 'chapters' || keyboardDisabled) return undefined;
     function handleKey(e) {
       if (e.key === 'ArrowRight') goNext();
       if (e.key === 'ArrowLeft') goPrev();
     }
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [phase, goNext, goPrev]);
+  }, [phase, keyboardDisabled, goNext, goPrev]);
 
   // Touch swipe support — same delta/threshold approach as the quote carousel.
   function onTouchStart(e) {

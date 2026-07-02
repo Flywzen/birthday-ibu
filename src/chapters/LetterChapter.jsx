@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import confetti from 'canvas-confetti';
 import SectionHeading from '../components/common/SectionHeading';
 import { letter } from '../data/content';
+import { loadConfetti } from '../utils/confetti';
 
 const letterParaVariants = {
   hidden: {},
@@ -72,7 +72,8 @@ export default function LetterChapter() {
 
     if (!hasFired && !prefersReducedMotion) {
       setHasFired(true);
-      setTimeout(() => {
+      setTimeout(async () => {
+        const confetti = await loadConfetti();
         confetti({
           particleCount: 70,
           spread: 70,

@@ -1,7 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { chapters } from '../../data/content';
+
+const FOCUSABLE_SELECTOR =
+  'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
 const menuVariants = {
   hidden: { opacity: 0, x: '100%' },
@@ -37,6 +40,9 @@ const linkItemVariants = {
  */
 export default function ChapterMenu({ open, currentIndex, onClose, onGoTo }) {
   const prefersReducedMotion = useReducedMotion();
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const previouslyFocusedRef = useRef(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -45,11 +51,56 @@ export default function ChapterMenu({ open, currentIndex, onClose, onGoTo }) {
     };
   }, [open]);
 
+  // Move focus into the dialog when it opens, and back to whatever
+  // triggered it (the topbar's menu button) once it closes — standard
+  // modal-dialog focus behaviour, previously missing entirely.
+  useEffect(() => {
+    if (open) {
+      previouslyFocusedRef.current = document.activeElement;
+      closeButtonRef.current?.focus();
+    } else {
+      previouslyFocusedRef.current?.focus?.();
+    }
+  }, [open]);
+
+  // Escape closes the dialog; Tab is trapped inside it so keyboard focus
+  // can't silently leave into the chapter content sitting behind it.
+  useEffect(() => {
+    if (!open) return undefined;
+
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (e.key !== 'Tab' || !dialogRef.current) return;
+      const focusable = dialogRef.current.querySelectorAll(FOCUSABLE_SELECTOR);
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [open, onClose]);
+
   return (
     <AnimatePresence>
       {open && (
         <motion.div
           key="chapter-menu"
+          ref={dialogRef}
+          id="chapter-menu-dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Daftar bab"
           variants={prefersReducedMotion ? {} : menuVariants}
           initial="hidden"
           animate="visible"
@@ -58,6 +109,7 @@ export default function ChapterMenu({ open, currentIndex, onClose, onGoTo }) {
           style={{ backgroundColor: 'rgba(255,248,248,0.97)' }}
         >
           <motion.button
+            ref={closeButtonRef}
             onClick={onClose}
             className="absolute right-6 top-6"
             style={{ color: '#8DA65C' }}

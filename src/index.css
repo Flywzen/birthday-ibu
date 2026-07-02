@@ -27,6 +27,8 @@
      and the letter-envelope interaction. */
   --animate-glow-drift: glow-drift 90s ease-in-out infinite alternate;
   --animate-seal-pulse: seal-pulse 2.5s ease-in-out infinite;
+  --animate-emblem-glow: emblem-glow-pulse 4.5s ease-in-out infinite;
+  --animate-emblem-shimmer: emblem-shimmer 2.8s ease-in-out infinite;
   --animate-music-pulse: music-pulse 2s ease-in-out infinite;
   --animate-eq-bar: eq-bar 0.55s ease-in-out infinite alternate;
   --animate-icon-pulse: icon-pulse 1.8s ease-in-out infinite;
@@ -49,6 +51,30 @@
   }
   50% {
     box-shadow: 0 0 28px rgba(141, 166, 92, 0.5);
+  }
+}
+/* Opening emblem — slow ambient glow "breathing" behind the medallion. */
+@keyframes emblem-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.04);
+  }
+}
+/* Opening emblem — two tiny sparkle twinkles, staggered via animation-delay. */
+@keyframes emblem-shimmer {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1);
   }
 }
 @keyframes music-pulse {

@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import confetti from 'canvas-confetti';
 import { RotateCcw } from 'lucide-react';
 import { finalBloom } from '../data/content';
+import { loadConfetti } from '../utils/confetti';
 
 const container = {
   hidden: {},
@@ -31,20 +31,28 @@ export default function FinalBloomChapter({ onReplay }) {
   useEffect(() => {
     if (hasFiredRef.current || prefersReducedMotion) return;
     hasFiredRef.current = true;
+    let cancelled = false;
 
-    const petal = confetti.shapeFromText({ text: '🌸', scalar: 2.2 });
-    const leaf = confetti.shapeFromText({ text: '🌿', scalar: 2 });
+    loadConfetti().then((confetti) => {
+      if (cancelled) return;
+      const petal = confetti.shapeFromText({ text: '🌸', scalar: 2.2 });
+      const leaf = confetti.shapeFromText({ text: '🌿', scalar: 2 });
 
-    confetti({
-      particleCount: 50,
-      spread: 90,
-      startVelocity: 22,
-      gravity: 0.5,
-      ticks: 260,
-      origin: { y: 0.15 },
-      shapes: [petal, leaf],
-      scalar: 1,
+      confetti({
+        particleCount: 50,
+        spread: 90,
+        startVelocity: 22,
+        gravity: 0.5,
+        ticks: 260,
+        origin: { y: 0.15 },
+        shapes: [petal, leaf],
+        scalar: 1,
+      });
     });
+
+    return () => {
+      cancelled = true;
+    };
   }, [prefersReducedMotion]);
 
   return (

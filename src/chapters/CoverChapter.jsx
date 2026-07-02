@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import confetti from 'canvas-confetti';
 import { ArrowRight } from 'lucide-react';
 import { useTypewriter } from '../hooks/useTypewriter';
 import { useAgeCounter } from '../hooks/useAgeCounter';
 import { cover, profile } from '../data/content';
+import { loadConfetti } from '../utils/confetti';
 import FloralCorner from '../components/common/FloralCorner';
+import OpeningEmblem from '../components/common/OpeningEmblem';
 import AgeCounter from '../components/AgeCounter';
 
 const container = {
@@ -22,57 +23,50 @@ const fadeUp = {
 };
 
 /**
- * The gift ribbon knot — a small wrapped-gift motif, distinct from the
- * envelope-and-seal used later in the Letter Room, so the two "open this"
- * moments in the site don't feel like the same interaction reskinned twice.
+ * Typed greeting line — isolated in its own component so the ~30-65ms
+ * per-character state updates from useTypewriter only re-render this one
+ * <p>, instead of re-rendering the whole "unwrapped" tree (AgeCounter,
+ * stats line, continue button) on every keystroke of the loop.
  */
-function GiftKnot({ pulsing }) {
+function TypedGreeting({ lines }) {
+  const typedText = useTypewriter(lines);
   return (
-    <div
-      className="relative mx-auto flex h-32 w-32 items-center justify-center rounded-full sm:h-36 sm:w-36"
-      style={{
-        background: 'linear-gradient(135deg, #F7CAC9 0%, #F5C9D4 55%, #FEE0E9 100%)',
-        border: '2px solid rgba(141,166,92,0.35)',
-        boxShadow: '0 12px 40px rgba(141,166,92,0.22)',
-      }}
-    >
-      {/* Ribbon bars */}
-      <span
-        className="absolute h-full w-[18%] rounded-full"
-        style={{ background: 'rgba(141,166,92,0.5)' }}
-        aria-hidden="true"
-      />
-      <span
-        className="absolute w-full h-[18%] rounded-full"
-        style={{ background: 'rgba(141,166,92,0.5)' }}
-        aria-hidden="true"
-      />
-      <span
-        className={`relative z-10 text-4xl sm:text-5xl ${pulsing ? 'animate-icon-pulse' : ''}`}
-        aria-hidden="true"
-      >
-        🌷
-      </span>
+    <div className="z-10 mb-8 min-h-[3.5rem] px-2">
+      <p className="font-title text-lg italic sm:text-xl" style={{ color: 'rgba(74,74,74,0.78)' }}>
+        {typedText}
+        <span className="animate-cursor-blink" style={{ color: '#8DA65C' }}>|</span>
+      </p>
     </div>
+  );
+}
+
+/**
+ * Stats line ("X tahun kehangatan · Y hari bersama kami") — isolated for
+ * the same reason as TypedGreeting: it's the one piece of this screen that
+ * ticks every second (via useAgeCounter), so it shouldn't drag the rest of
+ * the cover along for the re-render.
+ */
+function StatsLine({ template }) {
+  const age = useAgeCounter(profile.birthDate);
+  const statsLine = template.replace('{years}', age.years).replace('{days}', age.totalDaysFormatted);
+  return (
+    <p className="mb-10 font-body text-xs tracking-widest" style={{ color: 'rgba(141,166,92,0.75)' }}>
+      {statsLine}
+    </p>
   );
 }
 
 export default function CoverChapter({ onFirstInteraction, onContinue }) {
   const [unwrapped, setUnwrapped] = useState(false);
   const prefersReducedMotion = useReducedMotion();
-  const typedText = useTypewriter(cover.typewriterLines);
-  const age = useAgeCounter(profile.birthDate);
 
-  const statsLine = cover.statsTemplate
-    .replace('{years}', age.years)
-    .replace('{days}', age.totalDaysFormatted);
-
-  function handleOpen() {
+  async function handleOpen() {
     if (unwrapped) return;
     setUnwrapped(true);
     onFirstInteraction?.();
 
     if (!prefersReducedMotion) {
+      const confetti = await loadConfetti();
       confetti({
         particleCount: 90,
         spread: 75,
@@ -161,12 +155,13 @@ export default function CoverChapter({ onFirstInteraction, onContinue }) {
                 onClick={handleOpen}
                 onKeyDown={handleKeyDown}
                 aria-label={cover.openAriaLabel}
-                className="mb-6"
+                className="group mb-6 h-32 w-32 rounded-full sm:h-36 sm:w-36 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-[#fff8f8]"
+                style={{ '--tw-ring-color': 'rgba(141,166,92,0.55)' }}
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: 'spring', stiffness: 320, damping: 22 }}
               >
-                <GiftKnot pulsing />
+                <OpeningEmblem />
               </motion.button>
 
               <motion.p
@@ -195,26 +190,13 @@ export default function CoverChapter({ onFirstInteraction, onContinue }) {
                 🌸 🌿 🌸
               </motion.div>
 
-              <div className="z-10 mb-8 min-h-[3.5rem] px-2">
-                <p
-                  className="font-title text-lg italic sm:text-xl"
-                  style={{ color: 'rgba(74,74,74,0.78)' }}
-                >
-                  {typedText}
-                  <span className="animate-cursor-blink" style={{ color: '#8DA65C' }}>|</span>
-                </p>
-              </div>
+              <TypedGreeting lines={cover.typewriterLines} />
 
               <div className="mb-4 w-full">
                 <AgeCounter />
               </div>
 
-              <p
-                className="mb-10 font-body text-xs tracking-widest"
-                style={{ color: 'rgba(141,166,92,0.75)' }}
-              >
-                {statsLine}
-              </p>
+              <StatsLine template={cover.statsTemplate} />
 
               <motion.button
                 type="button"

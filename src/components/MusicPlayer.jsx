@@ -180,7 +180,15 @@ export default function MusicPlayer() {
         </AnimatePresence>
       </motion.button>
 
-      <audio ref={audioRef} loop preload="auto">
+      {/* preload="metadata" (not "auto"): this component only mounts after
+          the visitor has already interacted once (see App's hasInteracted
+          gate), and playback is attempted immediately on mount via
+          .play() below — which itself triggers the browser to start
+          fetching audio data. "auto" would additionally keep eagerly
+          buffering the whole file in the background while the "tap
+          anywhere to start music" banner is waiting for a second gesture,
+          which is unnecessary network use on mobile connections. */}
+      <audio ref={audioRef} loop preload="metadata">
         <source src="/assets/music/bgm.mp3" type="audio/mpeg" />
       </audio>
     </>
