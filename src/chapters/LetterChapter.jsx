@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import SectionHeading from './common/SectionHeading';
+import SectionHeading from '../components/common/SectionHeading';
 import { letter } from '../data/content';
 
-// Staggered paragraph entrance — same as original.
 const letterParaVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
@@ -18,10 +17,7 @@ const paraItem = {
   },
 };
 
-/**
- * Decorative floral ornament above the envelope — replaces the polaroid
- * photo cluster from the Ayah version. Three soft botanical badges in a row.
- */
+/** Floral ornament above the envelope — three soft botanical badges. */
 function FloralOrnament() {
   const items = [
     { emoji: '🌷', label: 'Cinta' },
@@ -38,12 +34,7 @@ function FloralOrnament() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            type: 'spring',
-            stiffness: 220,
-            damping: 26,
-            delay: i * 0.1,
-          }}
+          transition={{ type: 'spring', stiffness: 220, damping: 26, delay: i * 0.1 }}
           whileHover={{ y: -6, scale: 1.06 }}
         >
           <div
@@ -68,7 +59,7 @@ function FloralOrnament() {
   );
 }
 
-export default function LetterEnvelope() {
+export default function LetterChapter() {
   const [isOpen, setIsOpen] = useState(false);
   const [flapBehind, setFlapBehind] = useState(false);
   const [hasFired, setHasFired] = useState(false);
@@ -81,7 +72,6 @@ export default function LetterEnvelope() {
 
     if (!hasFired && !prefersReducedMotion) {
       setHasFired(true);
-      // Floral confetti palette matching the site theme.
       setTimeout(() => {
         confetti({
           particleCount: 70,
@@ -106,9 +96,9 @@ export default function LetterEnvelope() {
   }
 
   return (
-    <section id="letter" className="relative z-10 px-6 py-24">
+    <section className="relative z-10 flex min-h-[100dvh] flex-col justify-center px-6 py-24">
       <SectionHeading
-        num={letter.eyebrowNum}
+        num={letter.numeral}
         title={letter.title}
         titleClassName="font-title italic"
         subtitle={letter.subtitle}
@@ -116,11 +106,9 @@ export default function LetterEnvelope() {
         showDivider={false}
       />
 
-      <div className="mx-auto mt-14 max-w-xl">
-        {/* Floral ornament — replaces polaroid cluster */}
+      <div className="mx-auto mt-14 w-full max-w-xl">
         <FloralOrnament />
 
-        {/* ── CLOSED STATE: Envelope ── */}
         {!isOpen && (
           <motion.div
             role="button"
@@ -141,7 +129,6 @@ export default function LetterEnvelope() {
                   'drop-shadow(0 0 18px rgba(247,202,201,0.5)) drop-shadow(0 8px 32px rgba(0,0,0,0.10))',
               }}
             >
-              {/* Envelope body */}
               <div
                 className="absolute inset-0 z-10 rounded-xl"
                 style={{
@@ -151,7 +138,6 @@ export default function LetterEnvelope() {
                 }}
               />
 
-              {/* Envelope flap — animates open on click */}
               <motion.div
                 className="absolute left-0 right-0 top-0 h-[55%] rounded-t-xl"
                 style={{
@@ -168,7 +154,6 @@ export default function LetterEnvelope() {
                 transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               />
 
-              {/* Bottom half with open label */}
               <div
                 className="absolute bottom-0 left-0 right-0 z-20 flex h-[60%] flex-col items-center justify-center gap-2 rounded-b-xl pt-7 sm:pt-10"
                 style={{
@@ -187,16 +172,14 @@ export default function LetterEnvelope() {
                   className="font-body text-[0.7rem] tracking-widest"
                   style={{ color: 'rgba(141,166,92,0.5)' }}
                 >
-                  ↑ klik untuk membuka ↑
+                  ↑ {letter.openHint} ↑
                 </p>
               </div>
 
-              {/* Wax seal — floral 🌸 replaces ✈ */}
               <div
                 className="animate-seal-pulse absolute left-1/2 top-1/2 z-40 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-2xl"
                 style={{
-                  background:
-                    'linear-gradient(135deg, #F7CAC9 0%, #F5C9D4 100%)',
+                  background: 'linear-gradient(135deg, #F7CAC9 0%, #F5C9D4 100%)',
                   border: '2.5px solid rgba(141,166,92,0.6)',
                   boxShadow:
                     '0 0 0 4px rgba(141,166,92,0.08), 0 4px 20px rgba(247,202,201,0.4)',
@@ -208,7 +191,6 @@ export default function LetterEnvelope() {
           </motion.div>
         )}
 
-        {/* ── OPEN STATE: Letter content ── */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -221,14 +203,12 @@ export default function LetterEnvelope() {
                 background: 'rgba(255,255,255,0.88)',
                 border: '1px solid rgba(247,202,201,0.5)',
                 backdropFilter: 'blur(12px)',
-                // Subtle ruled-line texture
                 backgroundImage:
                   'repeating-linear-gradient(transparent, transparent 31px, rgba(247,202,201,0.12) 31px, rgba(247,202,201,0.12) 32px)',
                 backgroundSize: '100% 32px',
                 backgroundPosition: '0 56px',
               }}
             >
-              {/* Decorative dots header */}
               <motion.p
                 className="text-center text-base tracking-[0.5em]"
                 style={{ color: 'rgba(141,166,92,0.4)' }}
@@ -239,7 +219,6 @@ export default function LetterEnvelope() {
                 🌸 · 🌿 · 🌸
               </motion.p>
 
-              {/* Salutation */}
               <motion.p
                 className="mt-6 font-title text-lg italic"
                 style={{ color: '#4A4A4A' }}
@@ -250,7 +229,6 @@ export default function LetterEnvelope() {
                 {letter.salutation}
               </motion.p>
 
-              {/* Letter body */}
               <motion.div
                 className="mt-4 space-y-5"
                 variants={letterParaVariants}
@@ -269,7 +247,6 @@ export default function LetterEnvelope() {
                 ))}
               </motion.div>
 
-              {/* Closing */}
               <motion.p
                 className="mt-6 font-title text-lg italic"
                 style={{ color: '#4A4A4A' }}
@@ -289,7 +266,6 @@ export default function LetterEnvelope() {
                 {letter.closing.line2}
               </motion.p>
 
-              {/* Footer dots */}
               <motion.p
                 className="mt-6 text-center text-base tracking-[0.5em]"
                 style={{ color: 'rgba(141,166,92,0.4)' }}
@@ -300,7 +276,6 @@ export default function LetterEnvelope() {
                 🌸 · 🌿 · 🌸
               </motion.p>
 
-              {/* Close button */}
               <motion.button
                 onClick={closeLetter}
                 className="mx-auto mt-8 block rounded-full px-6 py-2 font-body text-xs uppercase tracking-[0.2em]"

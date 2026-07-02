@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { useAgeCounter } from '../hooks/useAgeCounter';
-import { profile, hero } from '../data/content';
+import { profile, cover } from '../data/content';
 
 const UNITS = [
-  { key: 'days',    label: hero.counterUnits.days,    wide: true },
-  { key: 'hours',   label: hero.counterUnits.hours },
-  { key: 'minutes', label: hero.counterUnits.minutes },
-  { key: 'seconds', label: hero.counterUnits.seconds },
+  { key: 'days',    label: cover.counterUnits.days,    wide: true },
+  { key: 'hours',   label: cover.counterUnits.hours },
+  { key: 'minutes', label: cover.counterUnits.minutes },
+  { key: 'seconds', label: cover.counterUnits.seconds },
 ];
 
 const container = {
@@ -41,7 +41,7 @@ export default function AgeCounter() {
         className="mb-4 text-center font-body text-[0.65rem] uppercase tracking-[0.35em]"
         style={{ color: 'rgba(141,166,92,0.7)' }}
       >
-        {hero.counterLabel}
+        {cover.counterLabel}
       </p>
 
       <motion.div

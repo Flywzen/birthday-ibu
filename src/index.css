@@ -29,11 +29,9 @@
   --animate-seal-pulse: seal-pulse 2.5s ease-in-out infinite;
   --animate-music-pulse: music-pulse 2s ease-in-out infinite;
   --animate-eq-bar: eq-bar 0.55s ease-in-out infinite alternate;
-  --animate-scroll-bounce: scroll-bounce 2s ease-in-out infinite;
   --animate-icon-pulse: icon-pulse 1.8s ease-in-out infinite;
   --animate-cursor-blink: cursor-blink 0.75s step-end infinite;
   --animate-petal-drift: petal-drift linear infinite;
-  --animate-sway: sway 6s ease-in-out infinite;
 }
 
 @keyframes glow-drift {
@@ -70,15 +68,6 @@
     transform: scaleY(0.25);
   }
 }
-@keyframes scroll-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(8px);
-  }
-}
 @keyframes icon-pulse {
   0%,
   100% {
@@ -103,16 +92,6 @@
     transform: translate(var(--drift, 20px), -110vh) rotate(var(--spin, 90deg));
   }
 }
-@keyframes sway {
-  0%,
-  100% {
-    transform: rotate(-3deg);
-  }
-  50% {
-    transform: rotate(3deg);
-  }
-}
-
 /* ============================================================================
    Base
    ============================================================================ */

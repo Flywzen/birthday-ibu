@@ -29,7 +29,7 @@ function computeAge(birthDateStr) {
   };
 }
 
-// Hook kecil, dipakai independen oleh AgeCounter & StatsStrip supaya
+// Hook kecil, dipakai independen oleh AgeCounter (di Cover) supaya
 // masing-masing cukup re-render sendiri tiap detik (tidak menyeret ulang
 // seluruh App tree). Update per-detik via setInterval -- ini BUKAN
 // requestAnimationFrame loop, jadi tidak termasuk kategori "animasi berat

@@ -1,65 +1,117 @@
-import { useEffect, useRef } from 'react';
-import { useReducedMotion } from 'framer-motion';
-import confetti from 'canvas-confetti';
+import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import BackgroundEffects from './components/BackgroundEffects';
 import AnimatedParticles from './components/AnimatedParticles';
-import Navbar from './components/layout/Navbar';
-import Hero from './components/Hero';
-import StatsStrip from './components/StatsStrip';
-import FlightTimeline from './components/FlightTimeline';
-import TraitGrid from './components/TraitGrid';
-import QuoteCards from './components/QuoteCards';
-import LetterEnvelope from './components/LetterEnvelope';
-import Footer from './components/layout/Footer';
 import MusicPlayer from './components/MusicPlayer';
+import ChapterTopBar from './components/navigation/ChapterTopBar';
+import ChapterNav from './components/navigation/ChapterNav';
+import ChapterMenu from './components/navigation/ChapterMenu';
+
+import CoverChapter from './chapters/CoverChapter';
+import GardenChapter from './chapters/GardenChapter';
+import BlessingChapter from './chapters/BlessingChapter';
+import TimelineChapter from './chapters/TimelineChapter';
+import LetterChapter from './chapters/LetterChapter';
+import FinalBloomChapter from './chapters/FinalBloomChapter';
+
+import { useChapterNavigation } from './hooks/useChapterNavigation';
+
+// Order here must match `chapters` in data/content.js.
+const CHAPTER_COMPONENTS = [
+  GardenChapter,
+  BlessingChapter,
+  TimelineChapter,
+  LetterChapter,
+  FinalBloomChapter,
+];
+
+const pageVariants = {
+  enter: (dir) => ({ opacity: 0, x: dir > 0 ? 48 : -48 }),
+  center: { opacity: 1, x: 0 },
+  exit: (dir) => ({ opacity: 0, x: dir > 0 ? -48 : 48 }),
+};
 
 export default function App() {
-  const hasFiredRef = useRef(false);
+  const nav = useChapterNavigation(CHAPTER_COMPONENTS.length);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    // Guard against React StrictMode double-invoke in dev.
-    if (hasFiredRef.current || prefersReducedMotion) return;
-    hasFiredRef.current = true;
+  const { phase, index, direction, isFirst, isLast, goNext, goPrev, goTo, openGift, restart, swipeHandlers } = nav;
 
-    // Opening confetti burst — floral palette.
-    confetti({
-      particleCount: 90,
-      spread: 75,
-      origin: { y: 0.35 },
-      colors: ['#F7CAC9', '#F5C9D4', '#C7DD9D', '#8DA65C', '#FEE0E9', '#fff8f8'],
-    });
-  }, [prefersReducedMotion]);
+  const CurrentChapter = CHAPTER_COMPONENTS[index];
+  const pageTransition = prefersReducedMotion
+    ? { duration: 0.15 }
+    : { duration: 0.45, ease: [0.22, 1, 0.36, 1] };
 
   return (
     <div className="relative min-h-screen font-body" style={{ color: '#4A4A4A' }}>
       <BackgroundEffects />
       <AnimatedParticles />
-      <Navbar />
 
-      <main className="relative">
-        {/* 1 · Hero — full-screen welcome with typewriter + age counter */}
-        <Hero />
+      {phase === 'chapters' && (
+        <>
+          <ChapterTopBar
+            index={index}
+            total={CHAPTER_COMPONENTS.length}
+            onOpenMenu={() => setMenuOpen(true)}
+          />
+          <ChapterNav
+            index={index}
+            total={CHAPTER_COMPONENTS.length}
+            isFirst={isFirst}
+            isLast={isLast}
+            onPrev={goPrev}
+            onNext={goNext}
+            onGoTo={goTo}
+          />
+          <ChapterMenu
+            open={menuOpen}
+            currentIndex={index}
+            onClose={() => setMenuOpen(false)}
+            onGoTo={goTo}
+          />
+        </>
+      )}
 
-        {/* 2 · Stats strip — years / months / total days */}
-        <StatsStrip />
-
-        {/* 3 · Timeline — Mama's milestones, botanical icon cards */}
-        <FlightTimeline />
-
-        {/* 4 · Trait grid — "Things We Love About You" */}
-        <TraitGrid />
-
-        {/* 5 · Quote carousel — blessings & floating thoughts */}
-        <QuoteCards />
-
-        {/* 6 · Letter envelope — heartfelt letter with floral seal */}
-        <LetterEnvelope />
+      <main
+        className="relative"
+        {...(phase === 'chapters' ? swipeHandlers : {})}
+      >
+        <AnimatePresence mode="wait" custom={direction} initial={false}>
+          {phase === 'cover' ? (
+            <motion.div
+              key="cover"
+              custom={direction}
+              variants={pageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <CoverChapter
+                onFirstInteraction={() => setHasInteracted(true)}
+                onContinue={openGift}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={`chapter-${index}`}
+              custom={direction}
+              variants={pageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <CurrentChapter onReplay={restart} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
-      <Footer />
-      <MusicPlayer />
+      {hasInteracted && <MusicPlayer />}
     </div>
   );
 }
