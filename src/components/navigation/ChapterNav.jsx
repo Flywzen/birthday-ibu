@@ -56,45 +56,54 @@ export default function ChapterNav({ index, total, isFirst, isLast, onPrev, onNe
             {chapters.map((chapter, i) => {
               const isActive = i === index;
               return (
-                <motion.button
+                // Outer button is the actual hit target: p-2 -m-2 adds 8px
+                // of invisible padding on every side (cancelled for layout
+                // by the matching negative margin) so even the 8px inactive
+                // dot gets a ~24px touch target, without changing the pill's
+                // visual footprint or the gap between dots.
+                <button
                   key={chapter.id}
                   type="button"
                   onClick={() => onGoTo(i)}
                   aria-label={`Ke bab ${chapter.numeral} · ${chapter.label}`}
                   aria-current={isActive ? 'true' : undefined}
-                  className="focus-moss relative h-2 rounded-full"
-                  style={{ width: isActive ? 24 : 8 }}
-                  animate={{ width: isActive ? 24 : 8 }}
-                  whileHover={isActive ? {} : { scale: 1.4 }}
-                  whileTap={{ scale: 0.85 }}
-                  transition={{ type: 'spring', stiffness: 380, damping: 26 }}
+                  className="focus-moss -m-2 flex items-center justify-center rounded-full p-2"
                 >
-                  <span
-                    className="block h-full w-full rounded-full transition-colors duration-300"
-                    style={{
-                      backgroundColor: isActive ? '#8DA65C' : 'rgba(141,166,92,0.28)',
-                    }}
-                  />
-                  {isActive && (
-                    <>
-                      <motion.span
-                        layoutId="chapter-active-dot"
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                          backgroundColor: '#8DA65C',
-                          boxShadow: '0 0 0 3px rgba(141,166,92,0.18), 0 0 12px rgba(141,166,92,0.35)',
-                        }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      />
-                      {/* Pulsing halo — CSS only, respects reduced-motion globally */}
-                      <span
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-0 rounded-full animate-pulse-ring"
-                        style={{ backgroundColor: 'rgba(141,166,92,0.35)' }}
-                      />
-                    </>
-                  )}
-                </motion.button>
+                  <motion.span
+                    className="relative block h-2 rounded-full"
+                    style={{ width: isActive ? 24 : 8 }}
+                    animate={{ width: isActive ? 24 : 8 }}
+                    whileHover={isActive ? {} : { scale: 1.4 }}
+                    whileTap={{ scale: 0.85 }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 26 }}
+                  >
+                    <span
+                      className="block h-full w-full rounded-full transition-colors duration-300"
+                      style={{
+                        backgroundColor: isActive ? '#8DA65C' : 'rgba(141,166,92,0.28)',
+                      }}
+                    />
+                    {isActive && (
+                      <>
+                        <motion.span
+                          layoutId="chapter-active-dot"
+                          className="absolute inset-0 rounded-full"
+                          style={{
+                            backgroundColor: '#8DA65C',
+                            boxShadow: '0 0 0 3px rgba(141,166,92,0.18), 0 0 12px rgba(141,166,92,0.35)',
+                          }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                        />
+                        {/* Pulsing halo — CSS only, respects reduced-motion globally */}
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 rounded-full animate-pulse-ring"
+                          style={{ backgroundColor: 'rgba(141,166,92,0.35)' }}
+                        />
+                      </>
+                    )}
+                  </motion.span>
+                </button>
               );
             })}
           </div>

@@ -128,7 +128,7 @@ export default function MusicPlayer() {
       {/* Floating music toggle button */}
       <motion.button
         onClick={toggle}
-        aria-label="Toggle music"
+        aria-label="Aktifkan atau matikan musik"
         aria-pressed={playing}
         className={`fixed bottom-6 right-6 z-[60] flex h-12 w-12 items-center justify-center rounded-full backdrop-blur-md ${
           playing ? 'animate-music-pulse' : ''

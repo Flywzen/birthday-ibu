@@ -196,30 +196,36 @@ export default function BlessingChapter() {
         <LayoutGroup>
           <div className="mt-5 flex justify-center gap-2">
             {blessing.slides.map((s, i) => (
-              <motion.button
+              // Outer button is a p-2 -m-2 hit target (see ChapterNav for the
+              // same pattern) so the small dots stay comfortably tappable.
+              <button
                 key={i}
                 onClick={() => goToSlide(i)}
                 aria-label={`Ke doa ${i + 1}`}
-                className="relative h-2 rounded-full"
-                style={{ width: i === index ? 24 : 8 }}
-                animate={{ width: i === index ? 24 : 8 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                className="focus-moss -m-2 flex items-center justify-center rounded-full p-2"
               >
-                <span
-                  className="block h-full w-full rounded-full transition-colors duration-200"
-                  style={{
-                    backgroundColor: i === index ? '#8DA65C' : 'rgba(141,166,92,0.25)',
-                  }}
-                />
-                {i === index && (
-                  <motion.span
-                    layoutId="blessing-active-dot"
-                    className="absolute inset-0 rounded-full"
-                    style={{ backgroundColor: '#8DA65C' }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                <motion.span
+                  className="relative block h-2 rounded-full"
+                  style={{ width: i === index ? 24 : 8 }}
+                  animate={{ width: i === index ? 24 : 8 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                >
+                  <span
+                    className="block h-full w-full rounded-full transition-colors duration-200"
+                    style={{
+                      backgroundColor: i === index ? '#8DA65C' : 'rgba(141,166,92,0.25)',
+                    }}
                   />
-                )}
-              </motion.button>
+                  {i === index && (
+                    <motion.span
+                      layoutId="blessing-active-dot"
+                      className="absolute inset-0 rounded-full"
+                      style={{ backgroundColor: '#8DA65C' }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </motion.span>
+              </button>
             ))}
           </div>
         </LayoutGroup>

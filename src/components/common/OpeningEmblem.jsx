@@ -134,112 +134,125 @@ export default function OpeningEmblem({ className = '' }) {
         strokeWidth="1"
       />
 
-      {/* Botanical wreath — mirrored around the box, sitting slightly behind */}
-      <g
-        className="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-        style={{ transformBox: 'fill-box', transformOrigin: '50% 60%' }}
-      >
-        {/* upper mirrored leaves flanking the bow */}
-        <use href="#emblemLeafShape" transform="translate(52,55) rotate(-40) scale(0.62)" opacity="0.9" />
-        <use href="#emblemLeafShape" transform="translate(108,55) rotate(40) scale(0.62)" opacity="0.9" />
+      {/* Gift group — wreath + box + bow + sparkles moved together as one
+          object so the composition re-centers as a whole. The box alone
+          (y72–120) is roughly twice the visual mass of the bow (y58–80),
+          which pulled the combined centroid to ~y92 — noticeably below
+          the medallion's true center at y80. Shifting the whole group up
+          by 12 brings the gift back to the medallion's optical center,
+          with even breathing room above the bow and below the wreath's
+          base blooms. Nothing inside this group moved relative to
+          anything else in it — only its position within the fixed
+          medallion frame (background/glow/pearled border, which stay
+          put) changed. */}
+      <g transform="translate(0,-12)">
+        {/* Botanical wreath — mirrored around the box, sitting slightly behind */}
+        <g
+          className="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          style={{ transformBox: 'fill-box', transformOrigin: '50% 60%' }}
+        >
+          {/* upper mirrored leaves flanking the bow */}
+          <use href="#emblemLeafShape" transform="translate(52,55) rotate(-40) scale(0.62)" opacity="0.9" />
+          <use href="#emblemLeafShape" transform="translate(108,55) rotate(40) scale(0.62)" opacity="0.9" />
 
-        {/* mid mirrored leaves along the box sides */}
-        <use href="#emblemLeafShape" transform="translate(38,92) rotate(-115) scale(0.85)" />
-        <use href="#emblemLeafShape" transform="translate(122,92) rotate(115) scale(0.85)" />
+          {/* mid mirrored leaves along the box sides */}
+          <use href="#emblemLeafShape" transform="translate(38,92) rotate(-115) scale(0.85)" />
+          <use href="#emblemLeafShape" transform="translate(122,92) rotate(115) scale(0.85)" />
 
-        {/* lower mirrored leaves cradling the base */}
-        <use href="#emblemLeafShape" transform="translate(52,124) rotate(-155) scale(0.7)" opacity="0.92" />
-        <use href="#emblemLeafShape" transform="translate(108,124) rotate(155) scale(0.7)" opacity="0.92" />
+          {/* lower mirrored leaves cradling the base */}
+          <use href="#emblemLeafShape" transform="translate(52,124) rotate(-155) scale(0.7)" opacity="0.92" />
+          <use href="#emblemLeafShape" transform="translate(108,124) rotate(155) scale(0.7)" opacity="0.92" />
 
-        {/* side blooms tucked into the wreath */}
-        <use href="#emblemBloomShape" transform="translate(36,110) scale(0.8)" style={{ color: '#F5C9D4' }} />
-        <use href="#emblemBloomShape" transform="translate(124,110) scale(0.8)" style={{ color: '#F5C9D4' }} />
-        <use href="#emblemBloomShape" transform="translate(80,132) scale(0.95)" style={{ color: '#F7CAC9' }} />
-      </g>
+          {/* side blooms tucked into the wreath */}
+          <use href="#emblemBloomShape" transform="translate(36,110) scale(0.8)" style={{ color: '#F5C9D4' }} />
+          <use href="#emblemBloomShape" transform="translate(124,110) scale(0.8)" style={{ color: '#F5C9D4' }} />
+          <use href="#emblemBloomShape" transform="translate(80,132) scale(0.95)" style={{ color: '#F7CAC9' }} />
+        </g>
 
-      {/* --- GIFT BOX --- */}
-      <g
-        className="transition-transform duration-500 ease-out group-hover:-translate-y-[1px]"
-        style={{ transformBox: 'fill-box', transformOrigin: '50% 50%' }}
-      >
-        {/* soft cast shadow under the box */}
-        <ellipse cx="80" cy="122" rx="30" ry="3.2" fill="#6E8347" opacity="0.12" />
+        {/* --- GIFT BOX --- */}
+        <g
+          className="transition-transform duration-500 ease-out group-hover:-translate-y-[1px]"
+          style={{ transformBox: 'fill-box', transformOrigin: '50% 50%' }}
+        >
+          {/* soft cast shadow under the box */}
+          <ellipse cx="80" cy="122" rx="30" ry="3.2" fill="#6E8347" opacity="0.12" />
 
-        {/* box body (rounded rect) */}
-        <rect
-          x="52"
-          y="72"
-          width="56"
-          height="48"
-          rx="5"
-          fill="url(#emblemBox)"
-          stroke="#6E8347"
-          strokeOpacity="0.35"
-          strokeWidth="1"
-        />
+          {/* box body (rounded rect) */}
+          <rect
+            x="52"
+            y="72"
+            width="56"
+            height="48"
+            rx="5"
+            fill="url(#emblemBox)"
+            stroke="#6E8347"
+            strokeOpacity="0.35"
+            strokeWidth="1"
+          />
 
-        {/* subtle box highlight along the top-left */}
+          {/* subtle box highlight along the top-left */}
+          <path
+            d="M55,76 Q55,73 58,73 L100,73"
+            stroke="#FFFFFF"
+            strokeOpacity="0.9"
+            strokeWidth="1"
+            fill="none"
+            strokeLinecap="round"
+          />
+
+          {/* vertical ribbon band down the middle of the box */}
+          <rect x="75.5" y="72" width="9" height="48" fill="url(#emblemRibbon)" />
+          <rect x="75.5" y="72" width="9" height="48" fill="none" stroke="#E9A6B4" strokeOpacity="0.5" strokeWidth="0.6" />
+        </g>
+
+        {/* --- RIBBON BOW on top of the box --- */}
+        <g
+          className="transition-transform duration-500 ease-out group-hover:-rotate-2"
+          style={{ transformBox: 'fill-box', transformOrigin: '50% 68%' }}
+        >
+          {/* left loop */}
+          <path
+            d="M80,68 C66,58 54,60 54,68 C54,76 68,74 80,68 Z"
+            fill="url(#emblemRibbon)"
+            stroke="#E9A6B4"
+            strokeOpacity="0.5"
+            strokeWidth="0.6"
+          />
+          {/* right loop */}
+          <path
+            d="M80,68 C94,58 106,60 106,68 C106,76 92,74 80,68 Z"
+            fill="url(#emblemRibbon)"
+            stroke="#E9A6B4"
+            strokeOpacity="0.5"
+            strokeWidth="0.6"
+          />
+          {/* ribbon inner shading in loops */}
+          <path d="M62,64 C58,66 58,70 62,71" stroke="#FFFFFF" strokeOpacity="0.7" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+          <path d="M98,64 C102,66 102,70 98,71" stroke="#FFFFFF" strokeOpacity="0.7" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+
+          {/* short ribbon tails hanging over the box lip */}
+          <path d="M76,70 L72,80 L76,79 L78,72 Z" fill="url(#emblemRibbon)" />
+          <path d="M84,70 L88,80 L84,79 L82,72 Z" fill="url(#emblemRibbon)" />
+
+          {/* knot */}
+          <rect x="76" y="63.5" width="8" height="9" rx="2" fill="#E9A6B4" />
+          <circle cx="80" cy="68" r="2.2" fill="#FFF8F8" stroke="#6E8347" strokeOpacity="0.4" strokeWidth="0.5" />
+        </g>
+
+        {/* Tiny shimmer sparkles */}
         <path
-          d="M55,76 Q55,73 58,73 L100,73"
-          stroke="#FFFFFF"
-          strokeOpacity="0.9"
-          strokeWidth="1"
-          fill="none"
-          strokeLinecap="round"
+          d="M108,58 L109.2,60.2 L111.4,61.4 L109.2,62.6 L108,64.8 L106.8,62.6 L104.6,61.4 L106.8,60.2 Z"
+          fill="#FFF8F8"
+          className="animate-emblem-shimmer origin-center"
+          style={{ transformBox: 'fill-box' }}
         />
-
-        {/* vertical ribbon band down the middle of the box */}
-        <rect x="75.5" y="72" width="9" height="48" fill="url(#emblemRibbon)" />
-        <rect x="75.5" y="72" width="9" height="48" fill="none" stroke="#E9A6B4" strokeOpacity="0.5" strokeWidth="0.6" />
-      </g>
-
-      {/* --- RIBBON BOW on top of the box --- */}
-      <g
-        className="transition-transform duration-500 ease-out group-hover:-rotate-2"
-        style={{ transformBox: 'fill-box', transformOrigin: '50% 68%' }}
-      >
-        {/* left loop */}
         <path
-          d="M80,68 C66,58 54,60 54,68 C54,76 68,74 80,68 Z"
-          fill="url(#emblemRibbon)"
-          stroke="#E9A6B4"
-          strokeOpacity="0.5"
-          strokeWidth="0.6"
+          d="M50,102 L51,104 L53,105 L51,106 L50,108 L49,106 L47,105 L49,104 Z"
+          fill="#FFF8F8"
+          className="animate-emblem-shimmer origin-center [animation-delay:1.3s]"
+          style={{ transformBox: 'fill-box' }}
         />
-        {/* right loop */}
-        <path
-          d="M80,68 C94,58 106,60 106,68 C106,76 92,74 80,68 Z"
-          fill="url(#emblemRibbon)"
-          stroke="#E9A6B4"
-          strokeOpacity="0.5"
-          strokeWidth="0.6"
-        />
-        {/* ribbon inner shading in loops */}
-        <path d="M62,64 C58,66 58,70 62,71" stroke="#FFFFFF" strokeOpacity="0.7" strokeWidth="0.7" fill="none" strokeLinecap="round" />
-        <path d="M98,64 C102,66 102,70 98,71" stroke="#FFFFFF" strokeOpacity="0.7" strokeWidth="0.7" fill="none" strokeLinecap="round" />
-
-        {/* short ribbon tails hanging over the box lip */}
-        <path d="M76,70 L72,80 L76,79 L78,72 Z" fill="url(#emblemRibbon)" />
-        <path d="M84,70 L88,80 L84,79 L82,72 Z" fill="url(#emblemRibbon)" />
-
-        {/* knot */}
-        <rect x="76" y="63.5" width="8" height="9" rx="2" fill="#E9A6B4" />
-        <circle cx="80" cy="68" r="2.2" fill="#FFF8F8" stroke="#6E8347" strokeOpacity="0.4" strokeWidth="0.5" />
       </g>
-
-      {/* Tiny shimmer sparkles */}
-      <path
-        d="M108,58 L109.2,60.2 L111.4,61.4 L109.2,62.6 L108,64.8 L106.8,62.6 L104.6,61.4 L106.8,60.2 Z"
-        fill="#FFF8F8"
-        className="animate-emblem-shimmer origin-center"
-        style={{ transformBox: 'fill-box' }}
-      />
-      <path
-        d="M50,102 L51,104 L53,105 L51,106 L50,108 L49,106 L47,105 L49,104 Z"
-        fill="#FFF8F8"
-        className="animate-emblem-shimmer origin-center [animation-delay:1.3s]"
-        style={{ transformBox: 'fill-box' }}
-      />
     </svg>
   );
 }

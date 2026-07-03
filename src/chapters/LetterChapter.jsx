@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import confetti from 'canvas-confetti';
+import { loadConfetti } from '../utils/confetti';
 import SectionHeading from '../components/common/SectionHeading';
 import OpeningEmblem from '../components/common/OpeningEmblem';
 import { letter } from '../data/content';
@@ -74,11 +74,13 @@ export default function LetterChapter() {
     if (!hasFired && !prefersReducedMotion) {
       setHasFired(true);
       setTimeout(() => {
-        confetti({
-          particleCount: 70,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#F7CAC9', '#F5C9D4', '#C7DD9D', '#8DA65C', '#FEE0E9', '#fff8f8'],
+        loadConfetti().then((confetti) => {
+          confetti({
+            particleCount: 70,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#F7CAC9', '#F5C9D4', '#C7DD9D', '#8DA65C', '#FEE0E9', '#fff8f8'],
+          });
         });
       }, 650);
     }
@@ -123,7 +125,7 @@ export default function LetterChapter() {
             transition={{ type: 'spring', stiffness: 320, damping: 24 }}
           >
             <div
-              className="relative h-[220px] w-[320px] sm:h-[260px] sm:w-[380px]"
+              className="relative h-[220px] w-[85vw] max-w-[320px] sm:h-[260px] sm:w-[380px]"
               style={{
                 perspective: 600,
                 filter:

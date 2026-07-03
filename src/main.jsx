@@ -7,6 +7,9 @@ import './index.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <SpeedInsights />
+    {/* Production-only: avoids firing analytics beacons/requests during
+        local dev, where there's nothing useful for Speed Insights to
+        collect anyway. */}
+    {import.meta.env.PROD && <SpeedInsights />}
   </StrictMode>,
 );
