@@ -91,14 +91,14 @@ export default function CoverChapter({ onFirstInteraction, onContinue }) {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(160deg, #fff8f8 0%, #fee8ef 25%, #f9f5f0 55%, #eef5e6 80%, #fff8f8 100%)',
+              'linear-gradient(160deg, #FFF8F8 0%, #FEE0E9 25%, #FFF8F8 55%, #EEF5E6 80%, #FFF8F8 100%)',
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(247,202,201,0.22) 0%, transparent 70%)',
+              'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(247,202,201,0.16) 0%, transparent 70%)',
           }}
         />
       </div>
