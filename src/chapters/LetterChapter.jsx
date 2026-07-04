@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { loadConfetti } from '../utils/confetti';
 import SectionHeading from '../components/common/SectionHeading';
-import OpeningEmblem from '../components/common/OpeningEmblem';
+import SealBloom from '../components/common/SealBloom';
 import { letter } from '../data/content';
 
 const letterParaVariants = {
@@ -42,8 +42,8 @@ function FloralOrnament() {
             className="flex h-16 w-16 items-center justify-center rounded-full text-2xl shadow-sm"
             style={{
               background:
-                'linear-gradient(135deg, rgba(247,202,201,0.35) 0%, rgba(255,248,248,0.7) 100%)',
-              border: '1.5px solid rgba(247,202,201,0.55)',
+                'linear-gradient(135deg, rgba(247,202,201,0.22) 0%, rgba(255,248,248,0.7) 100%)',
+              border: '1.5px solid rgba(199,221,157,0.4)',
             }}
           >
             {item.emoji}
@@ -129,7 +129,7 @@ export default function LetterChapter() {
               style={{
                 perspective: 600,
                 filter:
-                  'drop-shadow(0 0 18px rgba(247,202,201,0.5)) drop-shadow(0 8px 32px rgba(0,0,0,0.10))',
+                  'drop-shadow(0 0 14px rgba(247,202,201,0.3)) drop-shadow(0 8px 32px rgba(0,0,0,0.10))',
               }}
             >
               <div
@@ -137,7 +137,7 @@ export default function LetterChapter() {
                 style={{
                   background:
                     'linear-gradient(160deg, rgba(255,248,248,0.98) 0%, rgba(254,240,245,0.99) 100%)',
-                  border: '1.5px solid rgba(247,202,201,0.65)',
+                  border: '1.5px solid rgba(247,202,201,0.5)',
                 }}
               />
 
@@ -149,8 +149,8 @@ export default function LetterChapter() {
                   clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
                   zIndex: flapBehind ? 10 : 30,
                   background:
-                    'linear-gradient(180deg, rgba(245,201,212,0.6) 0%, rgba(254,240,245,0.7) 100%)',
-                  border: '1.5px solid rgba(247,202,201,0.55)',
+                    'linear-gradient(180deg, rgba(245,201,212,0.35) 0%, rgba(254,240,245,0.55) 100%)',
+                  border: '1.5px solid rgba(247,202,201,0.42)',
                   borderBottom: 'none',
                 }}
                 animate={{ rotateX: isOpen ? -180 : 0 }}
@@ -162,12 +162,12 @@ export default function LetterChapter() {
                 style={{
                   background:
                     'linear-gradient(0deg, rgba(255,248,248,0.98) 0%, rgba(255,248,248,0.9) 100%)',
-                  borderTop: '1px solid rgba(247,202,201,0.4)',
+                  borderTop: '1px solid rgba(247,202,201,0.3)',
                 }}
               >
                 <p
                   className="font-title text-sm uppercase tracking-[0.25em]"
-                  style={{ color: '#8DA65C' }}
+                  style={{ color: '#4E6B32' }}
                 >
                   {letter.openLabel}
                 </p>
@@ -185,11 +185,11 @@ export default function LetterChapter() {
                   background: 'linear-gradient(135deg, #F7CAC9 0%, #F5C9D4 100%)',
                   border: '2.5px solid rgba(141,166,92,0.6)',
                   boxShadow:
-                    '0 0 0 4px rgba(141,166,92,0.08), 0 4px 20px rgba(247,202,201,0.4)',
+                    '0 0 0 4px rgba(141,166,92,0.08), 0 4px 20px rgba(247,202,201,0.28)',
                 }}
               >
                 <div className="h-9 w-9">
-                  <OpeningEmblem variant="icon" />
+                  <SealBloom />
                 </div>
               </div>
             </div>
@@ -206,7 +206,7 @@ export default function LetterChapter() {
               className="relative rounded-2xl p-6 sm:p-10"
               style={{
                 background: 'rgba(255,255,255,0.88)',
-                border: '1px solid rgba(247,202,201,0.5)',
+                border: '1px solid rgba(199,221,157,0.4)',
                 backdropFilter: 'blur(12px)',
                 backgroundImage:
                   'repeating-linear-gradient(transparent, transparent 31px, rgba(247,202,201,0.12) 31px, rgba(247,202,201,0.12) 32px)',
@@ -286,14 +286,14 @@ export default function LetterChapter() {
                 className="mx-auto mt-8 block rounded-full px-6 py-2 font-body text-xs uppercase tracking-[0.2em]"
                 style={{
                   border: '1px solid rgba(141,166,92,0.35)',
-                  color: 'rgba(141,166,92,0.8)',
+                  color: '#4E6B32',
                 }}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.85, type: 'spring', stiffness: 220, damping: 26 }}
                 whileHover={{
                   borderColor: 'rgba(141,166,92,0.65)',
-                  color: '#8DA65C',
+                  color: '#4E6B32',
                   backgroundColor: 'rgba(141,166,92,0.06)',
                 }}
                 whileTap={{ scale: 0.96 }}

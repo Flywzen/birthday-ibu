@@ -126,11 +126,11 @@ export default function FinalBloomChapter({ onReplay }) {
           className="mb-14 flex items-center gap-2 rounded-full px-6 py-2.5 font-body text-xs uppercase tracking-[0.2em]"
           style={{
             border: '1px solid rgba(141,166,92,0.35)',
-            color: 'rgba(141,166,92,0.8)',
+            color: '#4E6B32',
           }}
           whileHover={{
             borderColor: 'rgba(141,166,92,0.65)',
-            color: '#8DA65C',
+            color: '#4E6B32',
             backgroundColor: 'rgba(141,166,92,0.06)',
           }}
           whileTap={{ scale: 0.96 }}

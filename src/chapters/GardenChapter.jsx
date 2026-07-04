@@ -35,7 +35,7 @@ function GardenCard({ item, offset }) {
       className={`group relative overflow-hidden rounded-2xl p-6 text-center ${offset ? 'sm:translate-y-4' : ''}`}
       style={{
         background: open ? 'rgba(255,255,255,0.82)' : 'rgba(255,255,255,0.55)',
-        border: open ? '1px solid rgba(141,166,92,0.45)' : '1px solid rgba(247,202,201,0.42)',
+        border: open ? '1px solid rgba(141,166,92,0.45)' : '1px solid rgba(199,221,157,0.4)',
         backdropFilter: 'blur(8px)',
       }}
       whileHover={{

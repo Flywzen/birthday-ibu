@@ -138,7 +138,7 @@ export default function MusicPlayer() {
           border: playing
             ? '1.5px solid rgba(141,166,92,0.55)'
             : '1px solid rgba(247,202,201,0.55)',
-          color: '#8DA65C',
+          color: '#6E8347',
         }}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

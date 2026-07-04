@@ -82,7 +82,7 @@ export default function SectionHeading({
       {decoration === 'floral' ? (
         <motion.div
           className="relative z-10 mx-auto flex max-w-[280px] items-center justify-center gap-3 text-base tracking-[0.2rem]"
-          style={{ color: '#8DA65C' }}
+          style={{ color: '#6E8347' }}
           variants={softRise}
         >
           <motion.span

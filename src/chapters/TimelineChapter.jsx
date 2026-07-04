@@ -56,7 +56,7 @@ export default function TimelineChapter() {
             className="w-[240px] shrink-0 snap-center rounded-2xl p-6 text-center sm:w-[260px]"
             style={{
               background: 'rgba(255,255,255,0.6)',
-              border: '1px solid rgba(247,202,201,0.45)',
+              border: '1px solid rgba(199,221,157,0.4)',
               backdropFilter: 'blur(8px)',
             }}
             whileHover={{
@@ -71,8 +71,8 @@ export default function TimelineChapter() {
               className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full text-2xl shadow-sm"
               style={{
                 background:
-                  'linear-gradient(135deg, rgba(247,202,201,0.25) 0%, rgba(245,201,212,0.3) 100%)',
-                border: '1.5px solid rgba(247,202,201,0.5)',
+                  'linear-gradient(135deg, rgba(199,221,157,0.3) 0%, rgba(247,202,201,0.22) 100%)',
+                border: '1.5px solid rgba(199,221,157,0.45)',
               }}
             >
               {item.icon}

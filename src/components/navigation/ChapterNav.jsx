@@ -30,7 +30,7 @@ export default function ChapterNav({ index, total, isFirst, isLast, onPrev, onNe
         className="flex items-center gap-3 rounded-full px-3 py-2 backdrop-blur-xl sm:gap-4 sm:px-4"
         style={{
           backgroundColor: 'rgba(255,248,248,0.9)',
-          border: '1px solid rgba(247,202,201,0.5)',
+          border: '1px solid rgba(199,221,157,0.45)',
         }}
         initial={pillRest}
         whileHover={pillHover}
@@ -43,7 +43,7 @@ export default function ChapterNav({ index, total, isFirst, isLast, onPrev, onNe
           disabled={isFirst}
           aria-label="Bab sebelumnya"
           className="focus-moss flex h-8 w-8 items-center justify-center rounded-full disabled:opacity-25 disabled:cursor-not-allowed"
-          style={{ color: '#8DA65C' }}
+          style={{ color: '#6E8347' }}
           whileHover={isFirst ? {} : { x: -2, backgroundColor: 'rgba(141,166,92,0.1)' }}
           whileTap={isFirst ? {} : { scale: 0.9, x: -4 }}
           transition={softSpring}
@@ -115,7 +115,7 @@ export default function ChapterNav({ index, total, isFirst, isLast, onPrev, onNe
           disabled={isLast}
           aria-label="Bab berikutnya"
           className="focus-moss flex h-8 w-8 items-center justify-center rounded-full disabled:opacity-25 disabled:cursor-not-allowed"
-          style={{ color: '#8DA65C' }}
+          style={{ color: '#6E8347' }}
           whileHover={isLast ? {} : { x: 2, backgroundColor: 'rgba(141,166,92,0.1)' }}
           whileTap={isLast ? {} : { scale: 0.9, x: 4 }}
           transition={softSpring}

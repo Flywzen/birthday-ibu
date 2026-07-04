@@ -96,7 +96,7 @@ export default function BlessingChapter() {
           className="relative overflow-hidden rounded-2xl"
           style={{
             minHeight: '220px',
-            border: '1px solid rgba(247,202,201,0.45)',
+            border: '1px solid rgba(199,221,157,0.4)',
             background: 'rgba(255,255,255,0.58)',
             backdropFilter: 'blur(8px)',
           }}
@@ -159,8 +159,8 @@ export default function BlessingChapter() {
           className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full p-2 backdrop-blur-sm"
           style={{
             background: 'rgba(255,255,255,0.7)',
-            border: '1px solid rgba(247,202,201,0.5)',
-            color: '#8DA65C',
+            border: '1px solid rgba(199,221,157,0.45)',
+            color: '#6E8347',
           }}
           whileHover={{
             scale: 1.12,
@@ -179,8 +179,8 @@ export default function BlessingChapter() {
           className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-2 backdrop-blur-sm"
           style={{
             background: 'rgba(255,255,255,0.7)',
-            border: '1px solid rgba(247,202,201,0.5)',
-            color: '#8DA65C',
+            border: '1px solid rgba(199,221,157,0.45)',
+            color: '#6E8347',
           }}
           whileHover={{
             scale: 1.12,

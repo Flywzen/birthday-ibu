@@ -132,7 +132,7 @@ export default function ChapterMenu({ open, currentIndex, onClose, onGoTo }) {
               ref={closeButtonRef}
               onClick={onClose}
               className="focus-moss absolute right-2 -top-16 flex h-10 w-10 items-center justify-center rounded-full"
-              style={{ color: '#8DA65C', backgroundColor: 'rgba(141,166,92,0.06)' }}
+              style={{ color: '#6E8347', backgroundColor: 'rgba(141,166,92,0.06)' }}
               aria-label="Tutup daftar bab"
               whileHover={{ rotate: 12, backgroundColor: 'rgba(141,166,92,0.14)', scale: 1.06 }}
               whileTap={{ scale: 0.85, rotate: 90 }}

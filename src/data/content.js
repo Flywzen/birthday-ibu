@@ -43,13 +43,13 @@ export const cover = {
   typewriterLines: [
     'Untuk Mama, yang sering tahu duluan kalau ada yang nggak beres samaku.',
     'Untuk setiap lelah yang jarang Mama ceritakan.',
-    'Untuk cinta yang sering hadir lewat hal-hal sederhana.',
+    'Untuk Mama, yang nunjukkin sayang tanpa perlu bilang-bilang.',
     'Hari ini, Amel cuma pengen Mama merasa dirayakan.',
   ],
   openLabel: 'Buka hadiah kecil ini',
-  openHint: 'Ketuk untuk membuka',
+  openHint: 'Ketuk pelan, ya',
   openAriaLabel: 'Buka hadiah kecil untuk Mama',
-  counterLabel: 'Usia Mama Sampai Detik Ini',
+  counterLabel: 'Usia Mama Sekarang',
   counterUnits: { days: 'Hari', hours: 'Jam', minutes: 'Menit', seconds: 'Detik' },
   // {years} dan {days} diganti otomatis oleh komponen dengan angka hasil
   // hitungan usia — lihat useAgeCounter.
@@ -69,27 +69,27 @@ export const garden = {
     {
       icon: '🍳',
       title: 'Masakan Mama',
-      desc: 'Belum pernah aku menemukan rasa masakan yang sehangat buatan Mama. Ada sesuatu di setiap masakannya yang tidak pernah kutemukan di tempat lain.',
+      desc: 'Masakan Mama emang beda. Susah dijelasin rasanya, tapi selalu bikin kangen.',
     },
     {
       icon: '🤍',
       title: 'Kesabaran Mama',
-      desc: 'Mama sudah menunggu dan memaafkan lebih banyak dari yang bisa kuhitung. Sampai sekarang aku masih kagum, dan kadang masih tidak percaya.',
+      desc: 'Mama sudah menunggu dan memaafkan lebih banyak dari yang bisa kuhitung. Sampai sekarang, aku kadang masih nggak percaya.',
     },
     {
       icon: '🏡',
       title: 'Kalau Ada Mama, Rumah Lebih Tenang',
-      desc: 'Aku nggak tahu persis kenapa, tapi kalau ada Mama, semuanya kerasa lebih tenang—di mana pun itu.',
+      desc: 'Aku nggak tahu persis kenapa. Tapi kalau ada Mama, semuanya kerasa lebih tenang, di mana pun itu.',
     },
     {
       icon: '🌿',
       title: 'Ketenangan Mama',
-      desc: 'Di tengah semua yang ramai dan kacau, Mama selalu jadi yang paling tenang. Satu kalimat dari Mama bisa membuat semuanya terasa baik-baik saja.',
+      desc: 'Di tengah yang ramai dan kacau, Mama selalu paling tenang. Kadang cuma butuh satu kalimat dari Mama, dan semuanya kerasa baik-baik aja.',
     },
     {
       icon: '🌸',
       title: 'Mama Peka Sama Hal Kecil',
-      desc: 'Mama memperhatikan hal-hal kecil yang sering luput dari orang lain. Caranya peduli tidak selalu terlihat, tapi selalu terasa.',
+      desc: 'Mama sering nyadar hal-hal kecil duluan, bahkan sebelum aku cerita apa-apa.',
     },
     {
       icon: '📖',
@@ -104,7 +104,7 @@ export const garden = {
     {
       icon: '🎁',
       title: 'Cara Mama Selalu Hadir',
-      desc: 'Di hari besar atau hari yang biasa saja, Mama selalu ada. Itu yang membuat waktu bersama Mama terasa berarti.',
+      desc: 'Di hari besar atau hari biasa, Mama selalu ada. Itu bukan hal kecil buatku.',
     },
   ],
 };
@@ -131,7 +131,7 @@ export const blessing = {
       attribution: 'Dari Amel, yang sayang Mama',
     },
     {
-      text: 'Semoga semua hal baik yang Mama berikan ke orang lain, pelan-pelan balik juga ke Mama. Mama juga pantas ngerasain itu, bukan cuma selalu jadi yang kasih.',
+      text: 'Semoga semua hal baik yang Mama kasih ke orang lain, pelan-pelan balik juga ke Mama. Mama juga pantas ngerasain itu. Selama ini Mama yang lebih sering ngasih.',
       attribution: 'Dengan sayang, Amel',
     },
     {
@@ -154,12 +154,12 @@ export const timeline = {
     {
       icon: '🌷',
       note: 'Sebelum Menjadi Mama',
-      desc: 'Jauh sebelum menjadi Mamaku, dia dulu adalah anak seseorang juga, yang sedang belajar apa arti rumah dan kasih sayang.',
+      desc: 'Jauh sebelum jadi Mama buatku, Mama juga pernah jadi anak kecil, yang waktu itu lagi belajar sendiri apa artinya rumah dan sayang.',
     },
     {
       icon: '🍚',
       note: 'Cara Mama Memastikan Semuanya Cukup',
-      desc: 'Aku nggak selalu sadar capeknya, tapi Mama selalu mikirin semuanya ada—dari yang penting sampai yang kelihatannya sepele. Baru belakangan aku ngeh itu nggak segampang kelihatannya.',
+      desc: 'Aku nggak selalu sadar capeknya. Tapi Mama selalu mikirin biar semuanya cukup, dari yang penting sampai yang kelihatannya sepele. Baru belakangan aku ngeh, itu nggak segampang kelihatannya.',
     },
     {
       icon: '🌙',
@@ -169,7 +169,7 @@ export const timeline = {
     {
       icon: '🌼',
       note: 'Hal-Hal Kecil yang Dirayakan',
-      desc: 'Rapor, atau hari Selasa yang biasa saja, Mama selalu merayakannya seolah itu penting.',
+      desc: 'Buat Mama, rapor atau hari Selasa biasa aja tetap layak dirayain.',
     },
   ],
 };
@@ -182,7 +182,7 @@ export const letter = {
   title: 'Surat untuk Mama',
   subtitle: 'Kata-Kata yang Tidak Selalu Aku Ucapkan',
   openLabel: 'Buka Surat',
-  openHint: 'Ketuk untuk membuka',
+  openHint: 'Ketuk amplopnya, ya',
   openAriaLabel: 'Buka surat untuk Mama',
   closeLabel: 'Tutup Surat',
   salutation: 'Mama,',
@@ -191,15 +191,15 @@ export const letter = {
   // kerangka. Angka usia di bawah dihitung dari birthDate di atas (1974 →
   // ulang tahun ke-52 di tahun 2026) — cek ulang dan sesuaikan bila perlu.
   paragraphs: [
-    'Ada banyak hal yang ingin aku katakan, tapi kata-katanya sering hilang begitu saja setiap kali aku duduk di depan Mama.',
-    'Semakin aku dewasa, semakin aku sadar berapa banyak yang sudah Mama lakukan diam-diam, tanpa pernah benar-benar aku lihat.',
-    'Makan malam yang tetap Mama siapkan meski Mama sendiri lelah. Malam-malam Mama terjaga karena aku sakit, dan kekhawatiran yang Mama simpan sendiri supaya aku tetap tenang.',
-    'Aku tumbuh besar di dalam kasih sayang yang Mama berikan, walau saat itu aku tidak selalu menyadarinya. Mungkin aku terlalu sibuk menjadi anak kecil, sibuk dengan duniaku sendiri.',
-    'Hari ini Amel cuma ingin Mama tahu: aku sadar, dan aku bersyukur lebih dari yang bisa diucapkan.',
-    'Mama mengajarkan aku banyak hal tanpa pernah terasa seperti sedang mengajar: sabar, lewat cara Mama menghadapiku di hari-hari terburukku, dan ikhlas, lewat cara Mama memberi tanpa pernah menghitung.',
-    'Mama juga yang mengajarkan aku, meski nggak pernah bilang langsung, bahwa rumah itu bukan soal tempat, tapi soal siapa yang ada di dalamnya. Buat aku, itu Mama.',
-    'Di ulang tahun Mama yang ke-52 ini, aku hanya ingin Mama merasakan betapa Mama dicintai apa adanya, bukan karena apa yang Mama lakukan untukku.',
-    'Barakallahu fii umrik, Mama. Semoga Allah menjaga Mama, memudahkan langkah-langkah Mama, dan memberi lebih banyak hari yang ringan dan tenang.',
+    'Ada banyak hal yang ingin aku bilang. Tapi begitu duduk di depan Mama, kata-katanya kayak menguap, nggak tahu ke mana.',
+    'Semakin aku dewasa, semakin aku sadar: ada banyak yang Mama lakukan diam-diam, yang nggak pernah aku lihat.',
+    'Makan malam yang tetap Mama siapkan, walau Mama sendiri lelah. Malam-malam Mama begadang karena aku sakit. Kekhawatiran yang Mama simpan sendiri, supaya aku tetap tenang.',
+    'Aku tumbuh besar dikelilingi sayang Mama, walau saat itu aku tidak selalu menyadarinya. Mungkin aku terlalu sibuk menjadi anak kecil, sibuk dengan duniaku sendiri.',
+    'Hari ini Amel cuma mau Mama tahu: aku sadar. Itu aja, tapi itu udah banyak buat aku.',
+    'Mama mengajarkan aku banyak hal, tanpa pernah terasa seperti sedang mengajar. Sabar, lewat cara Mama menghadapiku di hari-hari terburukku. Ikhlas, lewat cara Mama memberi tanpa pernah menghitung.',
+    'Mama juga yang ngajarin aku, meski nggak pernah bilang langsung, kalau rumah itu soal siapa yang ada di dalamnya. Buat aku, itu Mama.',
+    'Di ulang tahun Mama yang ke-52 ini, aku cuma mau Mama tahu: Mama dicintai apa adanya.',
+    'Barakallah fii umrik, Mama. Semoga Allah menjaga Mama, memudahkan langkah-langkah Mama, dan memberi lebih banyak hari yang ringan dan tenang.',
     'Amel cuma berharap, pelan-pelan, semua hal baik yang Mama kasih ke orang lain juga balik ke Mama sendiri.',
   ],
   closing: {
@@ -217,7 +217,7 @@ export const finalBloom = {
   title: 'Selamat Ulang Tahun, Mama',
   // TODO: Boleh diganti dengan doa penutup yang lebih personal.
   message:
-    'Semoga langkah Mama dimudahkan, doa Mama dikabulkan, dan hari-hari Mama dipenuhi ketenangan, ketenangan yang sama seperti yang selama ini Mama berikan untukku.',
+    'Semoga langkah Mama dimudahkan, doa Mama dikabulkan, dan hari-hari Mama dipenuhi ketenangan, setenang yang Mama kasih ke aku selama ini.',
   blessingLine: 'Barakallah fii umrik, Mama.',
   fromLine: 'Dari Amel, yang sayang Mama.',
   replayLabel: 'Baca dari awal lagi',

@@ -31,7 +31,7 @@ export default function ChapterTopBar({ index, total, menuOpen, onOpenMenu }) {
       >
         <motion.div
           className="relative h-full"
-          style={{ background: 'linear-gradient(to right, #F7CAC9, #8DA65C, #C7DD9D)' }}
+          style={{ background: 'linear-gradient(to right, #C7DD9D, #8DA65C, #6E8347)' }}
           animate={{ width: `${progress}%` }}
           transition={{ type: 'spring', stiffness: 200, damping: 30 }}
         >
@@ -51,7 +51,7 @@ export default function ChapterTopBar({ index, total, menuOpen, onOpenMenu }) {
         className="fixed left-1/2 top-4 z-50 flex w-[calc(100%-2rem)] max-w-md -translate-x-1/2 items-center justify-between rounded-full px-5 py-2.5 backdrop-blur-xl"
         style={{
           backgroundColor: 'rgba(255,248,248,0.78)',
-          border: '1px solid rgba(247,202,201,0.45)',
+          border: '1px solid rgba(199,221,157,0.4)',
         }}
         initial={{ opacity: 0, y: -16, boxShadow: '0 4px 16px rgba(141,166,92,0.04)' }}
         animate={{ opacity: 1, y: 0, boxShadow: '0 8px 32px rgba(141,166,92,0.06)' }}
@@ -67,7 +67,7 @@ export default function ChapterTopBar({ index, total, menuOpen, onOpenMenu }) {
               animate="center"
               exit="exit"
               className="block font-title text-xs tracking-widest"
-              style={{ color: '#8DA65C' }}
+              style={{ color: '#4E6B32' }}
             >
               {current.numeral} · {current.label}
             </motion.span>
@@ -82,7 +82,7 @@ export default function ChapterTopBar({ index, total, menuOpen, onOpenMenu }) {
           aria-expanded={menuOpen}
           aria-controls="chapter-menu-dialog"
           className="focus-moss flex h-8 w-8 items-center justify-center rounded-full"
-          style={{ color: '#8DA65C' }}
+          style={{ color: '#6E8347' }}
           whileHover={{ backgroundColor: 'rgba(141,166,92,0.12)', rotate: 6 }}
           whileTap={{ scale: 0.88, rotate: 0 }}
           transition={{ type: 'spring', stiffness: 380, damping: 24 }}

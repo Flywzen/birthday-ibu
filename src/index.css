@@ -15,6 +15,11 @@
   --color-sage: #c7dd9d;
   --color-moss: #8da65c;
   --color-moss-deep: #6e8347;
+  /* Darker moss for small readable text on cream — #8da65c only hits ~2.6:1
+     contrast there, which fails WCAG AA. This hits ~5.7:1. Icons/decorative
+     glyphs can keep using moss-deep (~4:1, passes the 3:1 non-text minimum);
+     anything a person actually reads as words uses this instead. */
+  --color-moss-text: #4e6b32;
   --color-text: #4a4a4a;
   --color-text-soft: #4a4a4a99;
 
