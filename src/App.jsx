@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import BackgroundEffects from './components/BackgroundEffects';
 import AnimatedParticles from './components/AnimatedParticles';
+import BloomCorners from './components/BloomCorners';
 import MusicPlayer from './components/MusicPlayer';
 import ChapterTopBar from './components/navigation/ChapterTopBar';
 import ChapterNav from './components/navigation/ChapterNav';
@@ -49,6 +50,7 @@ export default function App() {
     <div className="relative min-h-screen font-body" style={{ color: '#4A4A4A' }}>
       <BackgroundEffects />
       <AnimatedParticles />
+      <BloomCorners />
 
       {phase === 'chapters' && (
         <>
