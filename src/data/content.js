@@ -29,10 +29,11 @@ export const meta = {
 // ----------------------------------------------------------------------------
 export const chapters = [
   { id: 'garden', numeral: '01', icon: '🌷', label: 'Tentang Mama' },
-  { id: 'blessing', numeral: '02', icon: '🕊️', label: 'Doa untuk Mama' },
-  { id: 'timeline', numeral: '03', icon: '🌿', label: 'Yang Aku Ingat' },
-  { id: 'letter', numeral: '04', icon: '💌', label: 'Surat untuk Mama' },
-  { id: 'final', numeral: '05', icon: '🌸', label: 'Satu Doa Kecil' },
+  { id: 'bloom', numeral: '02', icon: '💐', label: 'Bunga untuk Mama' },
+  { id: 'blessing', numeral: '03', icon: '🕊️', label: 'Doa untuk Mama' },
+  { id: 'timeline', numeral: '04', icon: '🌿', label: 'Yang Aku Ingat' },
+  { id: 'letter', numeral: '05', icon: '💌', label: 'Surat untuk Mama' },
+  { id: 'final', numeral: '06', icon: '🌸', label: 'Satu Doa Kecil' },
 ];
 
 // ----------------------------------------------------------------------------
@@ -110,10 +111,20 @@ export const garden = {
 };
 
 // ----------------------------------------------------------------------------
+// 2 · Bunga untuk Mama — halaman visual singkat, jeda sebelum masuk ke doa.
+// ----------------------------------------------------------------------------
+export const bloom = {
+  numeral: '02',
+  eyebrow: 'Sekuntum Kecil',
+  title: 'Bunga untuk Mama',
+  caption: 'Nggak ada alasan khusus. Cuma pengen Mama lihat ini mekar.',
+};
+
+// ----------------------------------------------------------------------------
 // 3 · Blessing Room — calm prayers, wishes, soft quotes.
 // ----------------------------------------------------------------------------
 export const blessing = {
-  numeral: '02',
+  numeral: '03',
   eyebrow: 'Kata-Kata untuk Mama',
   title: 'Doa-Doa Hangat',
   // TODO: Ganti atau tambah kutipan yang lebih personal jika perlu.
@@ -145,7 +156,7 @@ export const blessing = {
 // 4 · Little Timeline — short, soft moments (not a "legacy journey").
 // ----------------------------------------------------------------------------
 export const timeline = {
-  numeral: '03',
+  numeral: '04',
   eyebrow: 'Momen-Momen yang Masih Aku Ingat',
   title: 'Kenangan-Kenangan Kecil',
   // TODO: Sesuaikan dengan momen kecil nyata yang berkesan buat keluarga —
@@ -178,7 +189,7 @@ export const timeline = {
 // 5 · Letter Room — the emotional peak.
 // ----------------------------------------------------------------------------
 export const letter = {
-  numeral: '04',
+  numeral: '05',
   title: 'Surat untuk Mama',
   subtitle: 'Kata-Kata yang Tidak Selalu Aku Ucapkan',
   openLabel: 'Buka Surat',
@@ -186,21 +197,19 @@ export const letter = {
   openAriaLabel: 'Buka surat untuk Mama',
   closeLabel: 'Tutup Surat',
   salutation: 'Mama,',
-  // TODO: Ganti seluruh isi paragraf dengan surat yang ditulis langsung
-  // oleh customer. Ini adalah placeholder hangat yang bisa digunakan sebagai
-  // kerangka. Angka usia di bawah dihitung dari birthDate di atas (1974 →
-  // ulang tahun ke-52 di tahun 2026) — cek ulang dan sesuaikan bila perlu.
+  // Surat asli dari client (Amel), Juli 2026. Kata-katanya tidak diubah —
+  // cuma dipecah jadi beberapa paragraf pendek biar enak dibaca, mengikuti
+  // jeda alami dari tulisan aslinya.
   paragraphs: [
-    'Ada banyak hal yang ingin aku bilang. Tapi begitu duduk di depan Mama, kata-katanya kayak menguap, nggak tahu ke mana.',
-    'Semakin aku dewasa, semakin aku sadar: ada banyak yang Mama lakukan diam-diam, yang nggak pernah aku lihat.',
-    'Makan malam yang tetap Mama siapkan, walau Mama sendiri lelah. Malam-malam Mama begadang karena aku sakit. Kekhawatiran yang Mama simpan sendiri, supaya aku tetap tenang.',
-    'Aku tumbuh besar dikelilingi sayang Mama, walau saat itu aku tidak selalu menyadarinya. Mungkin aku terlalu sibuk menjadi anak kecil, sibuk dengan duniaku sendiri.',
-    'Hari ini Amel cuma mau Mama tahu: aku sadar. Itu aja, tapi itu udah banyak buat aku.',
-    'Mama mengajarkan aku banyak hal, tanpa pernah terasa seperti sedang mengajar. Sabar, lewat cara Mama menghadapiku di hari-hari terburukku. Ikhlas, lewat cara Mama memberi tanpa pernah menghitung.',
-    'Mama juga yang ngajarin aku, meski nggak pernah bilang langsung, kalau rumah itu soal siapa yang ada di dalamnya. Buat aku, itu Mama.',
-    'Di ulang tahun Mama yang ke-52 ini, aku cuma mau Mama tahu: Mama dicintai apa adanya.',
-    'Barakallah fii umrik, Mama. Semoga Allah menjaga Mama, memudahkan langkah-langkah Mama, dan memberi lebih banyak hari yang ringan dan tenang.',
-    'Amel cuma berharap, pelan-pelan, semua hal baik yang Mama kasih ke orang lain juga balik ke Mama sendiri.',
+    'Selamat ulang tahun, Ma. 🤍',
+    'Terima kasih karena sudah menjadi perempuan yang begitu kuat dan selalu berusaha memberikan yang terbaik untuk keluarga. Semoga di usia yang baru ini Mama selalu diberikan kesehatan, kebahagiaan, hati yang tenang, dan umur yang penuh berkah. Semoga setiap doa dan harapan Mama satu per satu dikabulkan oleh Allah.',
+    'Aku juga berharap semoga kita bisa terus bertumbuh bersama sebagai keluarga. Tidak harus menjadi keluarga yang sempurna, tetapi menjadi keluarga yang saling mendengarkan, saling memahami, dan selalu menjadi tempat pulang yang paling nyaman.',
+    'Terima kasih untuk semua kasih sayang, perhatian, dan pengorbanan yang sudah Mama berikan selama ini. Aku tahu menjadi seorang ibu bukanlah hal yang mudah. Ada begitu banyak hal yang harus dipikirkan, dijaga, dan diperjuangkan setiap harinya.',
+    'Di hari spesial Mama, aku hanya ingin menitipkan satu harapan kecil. Semoga seiring bertambahnya usia, kita semua bisa semakin saling memahami dan saling mendengarkan.',
+    'Kadang, seseorang tidak selalu membutuhkan jawaban atau penilaian, melainkan hanya ingin didengar dan dipahami lebih dulu. Aku percaya, ketika hati merasa aman untuk bercerita, akan lebih mudah bagi kita untuk saling mengerti dan saling menguatkan.',
+    'Aku berharap rumah kita selalu menjadi tempat yang nyaman untuk berbagi cerita, tempat di mana tawa, tangis, dan segala perasaan diterima dengan penuh kasih. Karena bagiku, keluarga adalah tempat pertama untuk pulang dan menemukan rasa tenang.',
+    'Terima kasih sudah menjadi Mama yang selalu berusaha memberikan yang terbaik. Semoga Allah membalas setiap kebaikan Mama dengan kesehatan, kebahagiaan, rezeki yang berlimpah, dan hati yang selalu dipenuhi kedamaian.',
+    'Selamat bertambah usia, Ma. Semoga tahun ini membawa lebih banyak kebahagiaan daripada tahun-tahun sebelumnya.',
   ],
   closing: {
     line1: 'Barakallah fii umrik, Mama.',
@@ -212,7 +221,7 @@ export const letter = {
 // 6 · Final Bloom — the emotional ending, not a footer.
 // ----------------------------------------------------------------------------
 export const finalBloom = {
-  numeral: '05',
+  numeral: '06',
   eyebrow: 'Untuk Mama',
   title: 'Selamat Ulang Tahun, Mama',
   // TODO: Boleh diganti dengan doa penutup yang lebih personal.

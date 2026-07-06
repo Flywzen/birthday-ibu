@@ -3,7 +3,6 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import BackgroundEffects from './components/BackgroundEffects';
 import AnimatedParticles from './components/AnimatedParticles';
-import BloomCorners from './components/BloomCorners';
 import MusicPlayer from './components/MusicPlayer';
 import ChapterTopBar from './components/navigation/ChapterTopBar';
 import ChapterNav from './components/navigation/ChapterNav';
@@ -11,6 +10,7 @@ import ChapterMenu from './components/navigation/ChapterMenu';
 
 import CoverChapter from './chapters/CoverChapter';
 import GardenChapter from './chapters/GardenChapter';
+import BloomChapter from './chapters/BloomChapter';
 import BlessingChapter from './chapters/BlessingChapter';
 import TimelineChapter from './chapters/TimelineChapter';
 import LetterChapter from './chapters/LetterChapter';
@@ -21,6 +21,7 @@ import { useChapterNavigation } from './hooks/useChapterNavigation';
 // Order here must match `chapters` in data/content.js.
 const CHAPTER_COMPONENTS = [
   GardenChapter,
+  BloomChapter,
   BlessingChapter,
   TimelineChapter,
   LetterChapter,
@@ -50,7 +51,6 @@ export default function App() {
     <div className="relative min-h-screen font-body" style={{ color: '#4A4A4A' }}>
       <BackgroundEffects />
       <AnimatedParticles />
-      <BloomCorners />
 
       {phase === 'chapters' && (
         <>
