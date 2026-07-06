@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="32" fill="#FFF8F8" />
+
+  <!-- two small leaves at the base -->
+  <path
+    d="M32,47 C24,44 19.5,37.5 22.5,30 C29.5,31.5 33.5,39 32,47 Z"
+    fill="#6E8347"
+    opacity="0.9"
+  />
+  <path
+    d="M32,47 C40,44 44.5,37.5 41.5,30 C34.5,31.5 30.5,39 32,47 Z"
+    fill="#8DA65C"
+    opacity="0.9"
+  />
+
+  <!-- five-petal blossom -->
+  <g fill="#F5C9D4">
+    <circle cx="32" cy="17" r="9.6" />
+    <circle cx="43.5" cy="24.2" r="9.6" />
+    <circle cx="39.2" cy="37.4" r="9.6" />
+    <circle cx="24.8" cy="37.4" r="9.6" />
+    <circle cx="20.5" cy="24.2" r="9.6" />
+  </g>
+
+  <!-- flower center -->
+  <circle cx="32" cy="27.5" r="5.6" fill="#F7CAC9" stroke="#8DA65C" stroke-width="1" />
+  <circle cx="32" cy="27.5" r="2.4" fill="#FBE9A8" />
+</svg>
