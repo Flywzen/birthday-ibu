@@ -47,7 +47,6 @@ export const cover = {
     'Hari ini, Amel cuma ingin Mama merasa dirayakan.',
   ],
   openLabel: 'Buka kadonya, ya Ma',
-  openHint: 'Ketuk Di sini',
   openAriaLabel: 'Buka kado untuk Mama',
   counterLabel: 'Perjalanan Usia Mama',
   counterUnits: { days: 'Hari', hours: 'Jam', minutes: 'Menit', seconds: 'Detik' },
