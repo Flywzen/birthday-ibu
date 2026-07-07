@@ -159,7 +159,7 @@ export const timeline = {
     {
       icon: '💐',
       note: 'Hari Ini',
-      desc: 'Karena itu, hari ini bukan hanya tentang ulang tahun. Hari ini tentang mengucapkan terima kasih untuk semua yang mungkin belum sempat aku ucapkan.',
+      desc: 'Karena itu, hari ini bukan hanya tentang ulang tahun Mama. Pada hari ini aku ingin mengucapkan terima kasih untuk semua yang mungkin belum sempat aku ucapkan.',
     },
   ],
 };
