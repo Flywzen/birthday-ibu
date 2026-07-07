@@ -22,16 +22,17 @@ npm run preview # preview hasil build secara lokal
 ## Struktur chapter
 
 Situs ini tidak lagi berupa halaman panjang yang di-scroll. Ada satu layar
-pembuka (Cover) lalu lima chapter yang dijelajahi satu per satu:
+pembuka (Cover) lalu enam chapter yang dijelajahi satu per satu:
 
 ```
 Cover           → amplop/hadiah kecil, ketuk untuk membuka
                   (typewriter greeting + AgeCounter muncul setelah dibuka)
 01 · Garden of Love    → kartu "mekar" berisi hal-hal yang dicintai dari Mama
-02 · Blessing Room     → carousel doa & kutipan (geser/swipe)
-03 · Little Timeline   → kartu kenangan kecil, geser horizontal
-04 · Letter Room       → surat dengan interaksi amplop (puncak emosional)
-05 · Final Bloom       → penutup + doa akhir + tombol "baca ulang"
+02 · Bunga untuk Mama  → jeda visual singkat, satu ilustrasi bunga bergoyang
+03 · Blessing Room     → carousel doa & kutipan (geser/swipe)
+04 · Little Timeline   → kartu kenangan kecil, geser horizontal
+05 · Letter Room       → surat dengan interaksi amplop (puncak emosional)
+06 · Final Bloom       → penutup + doa akhir + tombol "baca ulang"
 ```
 
 **Navigasi** ada di dua tempat, sengaja bukan navbar tradisional:
@@ -57,9 +58,10 @@ per chapter. Cari komentar `// TODO` untuk bagian yang masih perlu data asli:
 |---|---|---|
 | `profile.birthDate` | — | Tanggal lahir asli, format `YYYY-MM-DD` |
 | `garden.items` | Garden of Love | 8 hal yang dicintai dari Mama |
+| `bloom.caption` | Bunga untuk Mama | Teks singkat di halaman jeda visual |
 | `blessing.slides` | Blessing Room | 5 kutipan / doa |
 | `timeline.items` | Little Timeline | 4 kenangan kecil (bukan milestone formal) |
-| `letter.paragraphs` | Letter Room | Isi surat — ganti `[USIA]` di paragraf ke-8 |
+| `letter.paragraphs` | Letter Room | Isi surat asli dari Amel — sudah final, jangan diubah |
 | `finalBloom.message` | Final Bloom | Doa penutup (opsional diganti) |
 
 ## Musik

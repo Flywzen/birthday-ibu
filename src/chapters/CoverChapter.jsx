@@ -147,7 +147,7 @@ export default function CoverChapter({ onFirstInteraction, onContinue }) {
                   backgroundClip: 'text',
                 }}
               >
-                For {profile.name}
+                Untuk {profile.name}
               </motion.h1>
 
               <motion.button
@@ -210,7 +210,7 @@ export default function CoverChapter({ onFirstInteraction, onContinue }) {
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 22 }}
               >
-                Masuk ke taman kecil
+                Masuk ke taman
                 <ArrowRight size={16} />
               </motion.button>
             </motion.div>

@@ -29,7 +29,7 @@ export default function BloomChapter() {
 
       <motion.img
         src={src}
-        alt="Bunga kecil yang bergoyang pelan"
+        alt="Bunga yang bergoyang pelan"
         className="mt-10 h-56 w-56 sm:h-72 sm:w-72"
         initial="hidden"
         whileInView="visible"
