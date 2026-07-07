@@ -47,7 +47,7 @@ export const cover = {
     'Hari ini, Amel cuma ingin Mama merasa dirayakan.',
   ],
   openLabel: 'Buka kadonya, ya Ma',
-  openAriaLabel: 'Buka kado untuk Mama',
+  openAriaLabel: 'Kado untuk Mama',
   counterLabel: 'Perjalanan Usia Mama',
   counterUnits: { days: 'Hari', hours: 'Jam', minutes: 'Menit', seconds: 'Detik' },
   // {years} dan {days} diganti otomatis oleh komponen dengan angka hasil
