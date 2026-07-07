@@ -52,7 +52,7 @@ export const cover = {
   counterUnits: { days: 'Hari', hours: 'Jam', minutes: 'Menit', seconds: 'Detik' },
   // {years} dan {days} diganti otomatis oleh komponen dengan angka hasil
   // hitungan usia — lihat useAgeCounter.
-  statsTemplate: '{years} tahun Mama menjadi Rumah untuk Aku Pulang',
+  statsTemplate: '{years} tahun Mama senantiasa menjadi Rumah untuk Aku Pulang',
 };
 
 // ----------------------------------------------------------------------------
