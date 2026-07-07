@@ -210,7 +210,7 @@ export default function CoverChapter({ onFirstInteraction, onContinue }) {
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 22 }}
               >
-                Masuk ke Taman Mama
+                Masuk ke Taman
                 <ArrowRight size={16} />
               </motion.button>
             </motion.div>
