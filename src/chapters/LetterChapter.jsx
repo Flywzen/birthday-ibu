@@ -21,9 +21,9 @@ const paraItem = {
 /** Floral ornament above the envelope — three soft botanical badges. */
 function FloralOrnament() {
   const items = [
-    { emoji: '🌷', label: 'Cinta' },
-    { emoji: '🌿', label: 'Kehangatan' },
-    { emoji: '🌼', label: 'Syukur' },
+    { emoji: '🌷'},
+    { emoji: '🌿'},
+    { emoji: '🌼'},
   ];
 
   return (

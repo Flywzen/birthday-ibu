@@ -18,7 +18,7 @@ export const profile = {
 };
 
 export const meta = {
-  title: 'Selamat Ulang Tahun, Mama',
+  title: 'Selamat Ulang Tahun ya, Ma',
   lang: 'id',
 };
 
@@ -29,32 +29,31 @@ export const meta = {
 // ----------------------------------------------------------------------------
 export const chapters = [
   { id: 'garden', numeral: '01', icon: '🌷', label: 'Tentang Mama' },
-  { id: 'bloom', numeral: '02', icon: '💐', label: 'Bunga untuk Mama' },
-  { id: 'blessing', numeral: '03', icon: '🕊️', label: 'Doa untuk Mama' },
-  { id: 'timeline', numeral: '04', icon: '🌿', label: 'Yang Aku Ingat' },
-  { id: 'letter', numeral: '05', icon: '💌', label: 'Surat untuk Mama' },
-  { id: 'final', numeral: '06', icon: '🌸', label: 'Doa Penutup' },
+  { id: 'bloom', numeral: '02', icon: '💐', label: 'Sekuntum Bunga untuk Mama' },
+  { id: 'blessing', numeral: '03', icon: '🕊️', label: 'Doa-Doa Kecilku' },
+  { id: 'timeline', numeral: '04', icon: '🌿', label: 'Yang Tak Terlupakan' },
+  { id: 'letter', numeral: '05', icon: '💌', label: 'Sepucuk Surat untuk Mama' },
+  { id: 'final', numeral: '06', icon: '🌸', label: 'Ucapan Penutup' },
 ];
 
 // ----------------------------------------------------------------------------
 // 1 · Opening / Gift Cover
 // ----------------------------------------------------------------------------
 export const cover = {
-  eyebrow: 'Barakallah fii umrik',
+  eyebrow: 'Barakallah fii umrik Mama',
   typewriterLines: [
-    'Untuk Mama, yang sering tahu duluan kalau ada yang nggak beres samaku.',
-    'Termasuk capek yang jarang Mama ceritain.',
-    'Mama juga yang nunjukkin sayang tanpa perlu bilang-bilang.',
-    'Hari ini, Amel cuma pengen Mama ngerasa dirayain.',
+    'Untuk Mama, yang selalu peka dengan keadaanku',
+    'Sampai kadang, aku lupa kalau Mama juga sedang menjalani hari yang berat',
+    'Hari ini, Amel cuma ingin Mama merasa dirayakan.',
   ],
-  openLabel: 'Buka kadonya, yuk',
-  openHint: 'Ketuk pelan, ya',
+  openLabel: 'Buka kadonya, ya Ma',
+  openHint: 'Ketuk Di sini',
   openAriaLabel: 'Buka kado untuk Mama',
-  counterLabel: 'Usia Mama Sekarang',
+  counterLabel: 'Perjalanan Usia Mama',
   counterUnits: { days: 'Hari', hours: 'Jam', minutes: 'Menit', seconds: 'Detik' },
   // {years} dan {days} diganti otomatis oleh komponen dengan angka hasil
   // hitungan usia — lihat useAgeCounter.
-  statsTemplate: '{years} tahun Mama, dan {days} hari yang aku syukuri',
+  statsTemplate: '{years} tahun Mama menjadi Rumah untuk Aku Pulang',
 };
 
 // ----------------------------------------------------------------------------
@@ -62,50 +61,49 @@ export const cover = {
 // ----------------------------------------------------------------------------
 export const garden = {
   numeral: '01',
-  eyebrow: 'Yang Aku Sayangi dari Mama',
-  title: 'Hal-Hal Kecil yang Bikin Mama, Mama',
-  hint: 'Ketuk kelopaknya biar mekar',
+  title: 'Hal-Hal yang Selalu Aku Ingat dari Mama',
+  hint: 'Ketuk setiap Pucuknya ya, Ma',
   // TODO: Sesuaikan dengan hal-hal spesifik yang customer dan keluarga sukai dari Mama.
   items: [
     {
       icon: '🍳',
       title: 'Masakan Mama',
-      desc: 'Masakan Mama emang beda. Susah dijelasin rasanya, tapi selalu bikin kangen.',
+      desc: 'Masakan Mama selalu punya rasa yang sulit dijelaskan. Barangkali karena di setiap masakan itu selalu ada cinta dan perhatian.',
     },
     {
       icon: '🤍',
       title: 'Kesabaran Mama',
-      desc: 'Mama udah banyak banget nyabarin dan maafin aku. Kadang aku sendiri masih nggak percaya sebanyak itu.',
+      desc: 'Kesabaran Mama mengajarkanku bahwa kasih sayang sering kali hadir dalam bentuk kesempatan untuk belajar dan memperbaiki diri.',
     },
     {
       icon: '🏡',
-      title: 'Kalau Ada Mama, Rumah Lebih Tenang',
-      desc: 'Aku nggak tahu persis kenapa. Tapi kalau ada Mama, semuanya kerasa lebih tenang, di mana pun itu.',
+      title: 'Kehangatan Mama',
+      desc: 'Kehadiran Mama selalu membuat rumah terasa lebih hangat, seolah setiap lelahku menemukan tempat untuk beristirahat.',
     },
     {
       icon: '🌿',
       title: 'Ketenangan Mama',
-      desc: 'Di tengah yang ramai dan kacau, Mama selalu paling tenang. Kadang cuma butuh satu kalimat dari Mama, dan semuanya kerasa baik-baik aja.',
+      desc: 'Di tengah banyaknya hal yang datang silih berganti, Nasihat dan senyuman Mama selalu menghadirkan ketenangan.',
     },
     {
       icon: '🌸',
-      title: 'Mama Duluan yang Nyadar',
-      desc: 'Mama sering nyadar hal-hal kecil duluan, bahkan sebelum aku cerita apa-apa.',
+      title: 'Kepekaan Mama',
+      desc: 'Mama seringkali memahami apa yang kurasakan, bahkan sebelum aku mampu mengungkapkannya.',
     },
     {
       icon: '📖',
       title: 'Cara Mama Mengajar',
-      desc: 'Mama nggak pernah banyak nasihatin. Aku malah belajar paling banyak dari cara Mama ngejalanin harinya sendiri.',
+      desc: 'Banyak pelajaran yang kuterima bukan dari nasihat, melainkan dari cara Mama menjalani hidup setiap hari.',
     },
     {
       icon: '🌙',
-      title: 'Mama Sering Doain Tanpa Banyak Cerita',
-      desc: 'Aku jarang denger Mama berdoa, tapi aku percaya doanya selalu ada. Makasih udah terus doain aku, Ma.',
+      title: 'Tulusnya Doa Mama',
+      desc: 'Aku mungkin tidak selalu mendengar doa-doa Mama, tetapi aku percaya namaku selalu ada di dalamnya.',
     },
     {
       icon: '🎁',
-      title: 'Cara Mama Selalu Hadir',
-      desc: 'Di hari besar atau hari biasa, Mama selalu ada. Itu artinya banyak buatku.',
+      title: 'Mama yang Selalu Hadir',
+      desc: 'Kehadiran Mama, bahkan dalam hal-hal yang tampak sederhana, selalu membawa arti yang begitu besar bagiku.',
     },
   ],
 };
@@ -115,39 +113,25 @@ export const garden = {
 // ----------------------------------------------------------------------------
 export const bloom = {
   numeral: '02',
-  eyebrow: 'Jeda Sebentar',
   title: 'Bunga untuk Mama',
-  caption: 'Nggak ada alasan khusus. Cuma pengen Mama lihat ini mekar.',
-};
-
+  caption: 'Semoga bunga ini bisa mewakili rasa syukur yang sulit aku ungkapkan dengan kata-kata.'
+}
 // ----------------------------------------------------------------------------
 // 3 · Blessing Room — calm prayers, wishes, soft quotes.
 // ----------------------------------------------------------------------------
 export const blessing = {
   numeral: '03',
-  eyebrow: 'Kata-Kata untuk Mama',
-  title: 'Doa-Doa Hangat',
+  title: 'Doa-Doa Kecilku',
   // TODO: Ganti atau tambah kutipan yang lebih personal jika perlu.
   slides: [
     {
-      text: 'Banyak hal dari Mama yang mungkin terlihat biasa, tapi justru itu yang paling sering aku ingat.',
-      attribution: 'Untuk Mama, dengan syukur',
+      text: 'Semoga Allah senantiasa menjaga kesehatan Mama, memberkahi umur Mama, dan menghadirkan ketenangan sebagaimana Mama selalu menghadirkannya untukku.',
     },
     {
-      text: 'Semoga Allah kasih Mama umur yang panjang, sehat, dan segala kemudahan, dengan hati setenang yang biasa Mama kasih ke aku.',
-      attribution: 'Doa buat Mama',
+      text: 'Ada begitu banyak hal yang Mama lakukan tanpa pernah mengharapkan untuk diketahui. Terima kasih karena tetap memilih melakukan semuanya dengan penuh kasih.',
     },
     {
-      text: 'Ada banyak pengorbanan yang Mama simpan sendiri: tidur yang hilang, kesenangan yang Mama tunda. Aku lihat itu semua sekarang, dan aku bersyukur.',
-      attribution: 'Dari Amel, yang sayang Mama',
-    },
-    {
-      text: 'Semoga semua hal baik yang Mama kasih ke orang lain, cepat atau lambat balik juga ke Mama. Mama juga pantas ngerasain itu. Selama ini Mama yang lebih sering ngasih.',
-      attribution: 'Dengan sayang, Amel',
-    },
-    {
-      text: 'Aku nggak tahu persis sejak kapan, tapi suara Mama sering jadi hal yang bikin semuanya terasa lebih aman.',
-      attribution: 'Untuk Mama, hari ini',
+      text: 'Semoga setiap kebaikan yang Mama berikan kepada orang lain menjadi jalan untuk datangnya kebaikan yang berlipat untuk Mama.',
     },
   ],
 };
@@ -157,30 +141,25 @@ export const blessing = {
 // ----------------------------------------------------------------------------
 export const timeline = {
   numeral: '04',
-  eyebrow: 'Momen-Momen yang Masih Aku Ingat',
-  title: 'Kenangan yang Masih Nempel',
+  eyebrow: 'Kenangan Kecil',
+  title: 'Kenangan yang Akan Selalu Kurayakan',
   // TODO: Sesuaikan dengan momen kecil nyata yang berkesan buat keluarga —
   // tidak harus tanggal formal seperti milestone besar, boleh momen sehari-hari.
   items: [
     {
-      icon: '🌷',
-      note: 'Sebelum Menjadi Mama',
-      desc: 'Jauh sebelum jadi Mama buatku, Mama juga pernah jadi anak kecil, yang waktu itu lagi belajar sendiri apa artinya rumah dan sayang.',
+      icon: '🍼',
+      note: 'Dulu',
+      desc: 'Waktu kecil aku belum tahu bahwa semua kasih sayang dan perhatian Mama lahir dari rasa cinta yang Mama pupuk setiap hari.',
     },
     {
-      icon: '🍚',
-      note: 'Cara Mama Memastikan Semuanya Cukup',
-      desc: 'Aku nggak selalu sadar capeknya. Tapi Mama selalu mikirin biar semuanya cukup, dari yang penting sampai yang kelihatannya sepele. Baru belakangan aku ngeh, itu nggak segampang kelihatannya.',
+      icon: '🌱',
+      note: 'Beranjak Dewasa',
+      desc: 'Semakin aku bertambah besar, aku mulai melihat bahwa di balik banyak hal yang terlihat sederhana, selalu ada waktu, tenaga, dan doa yang Mama berikan tanpa banyak aku ketahui.',
     },
     {
-      icon: '🌙',
-      note: 'Menunggu Sampai Larut',
-      desc: 'Aku pulang larut, dan selalu ada satu lampu kecil yang masih menyala. Mama juga masih terjaga di sana.',
-    },
-    {
-      icon: '🌼',
-      note: 'Yang Dirayain Meski Biasa Aja',
-      desc: 'Buat Mama, rapor atau hari Selasa biasa aja tetap layak dirayain.',
+      icon: '💐',
+      note: 'Hari Ini',
+      desc: 'Karena itu, hari ini bukan hanya tentang ulang tahun. Hari ini tentang mengucapkan terima kasih untuk semua yang mungkin belum sempat aku ucapkan.',
     },
   ],
 };
@@ -191,7 +170,7 @@ export const timeline = {
 export const letter = {
   numeral: '05',
   title: 'Surat untuk Mama',
-  subtitle: 'Yang Jarang Aku Bilang Langsung',
+  subtitle: 'Kalimat yang Tidak Selalu Bisa Aku Ungkapkan',
   openLabel: 'Buka Surat',
   openHint: 'Ketuk amplopnya, ya',
   openAriaLabel: 'Buka surat untuk Mama',
@@ -226,10 +205,10 @@ export const finalBloom = {
   title: 'Selamat Ulang Tahun, Mama',
   // TODO: Boleh diganti dengan doa penutup yang lebih personal.
   message:
-    'Semoga langkah Mama dimudahkan, doa Mama dikabulkan, dan hari-hari Mama dipenuhi ketenangan, setenang yang Mama kasih ke aku selama ini.',
+    'Semoga langkah Mama dimudahkan, semua doa Mama perlahan dikabulkan, dan hari-hari Mama senantiasa dipenuhi ketenangan.',
   blessingLine: 'Barakallah fii umrik, Mama.',
-  fromLine: 'Dari Amel, yang sayang Mama.',
+  fromLine: 'Dari Amel, dengan Penuh Cinta.',
   replayLabel: 'Baca ulang',
   // Quiet closing signature — replaces the old separate Footer section.
-  signature: 'Dibikin Amel, khusus buat Mama.',
+  signature: 'Dari Amel, Untuk Mama.',
 };

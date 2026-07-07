@@ -96,7 +96,7 @@ function GardenCard({ item, offset }) {
           className="relative mt-1 font-body text-[0.6rem] uppercase tracking-[0.25em]"
           style={{ color: 'rgba(141,166,92,0.5)' }}
         >
-          Ketuk untuk mekar
+          Klik di sini untuk melihat kenangan
         </p>
       )}
 
