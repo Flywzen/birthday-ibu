@@ -66,7 +66,7 @@ export const garden = {
     {
       icon: '🍳',
       title: 'Masakan Mama',
-      desc: 'Masakan Mama selalu punya rasa yang sulit dijelaskan. Barangkali karena di setiap masakan itu selalu ada cinta dan perhatian.',
+      desc: 'Masakan Mama punya tempat tersendiri di hatiku. Barangkali karena di setiap masakan itu selalu ada cinta dan perhatian.',
     },
     {
       icon: '🤍',
@@ -76,7 +76,7 @@ export const garden = {
     {
       icon: '🏡',
       title: 'Kehangatan Mama',
-      desc: 'Kehadiran Mama selalu membuat rumah terasa lebih hangat, seolah setiap lelahku menemukan tempat untuk beristirahat.',
+      desc: 'Kehadiran Mama selalu membuat rumah terasa lebih hangat, seolah setiap lelahku bisa menemukan tempatnya untuk beristirahat.',
     },
     {
       icon: '🌿',
@@ -112,7 +112,7 @@ export const garden = {
 export const bloom = {
   numeral: '02',
   title: 'Bunga untuk Mama',
-  caption: 'Semoga bunga ini bisa mewakili rasa syukur yang sulit aku ungkapkan dengan kata-kata.'
+  caption: 'Sebagai rasa syukur atas kehadiran Mama yang seringkali sulit aku ungkapkan dengan kata-kata.'
 }
 // ----------------------------------------------------------------------------
 // 3 · Blessing Room — calm prayers, wishes, soft quotes.
@@ -145,7 +145,7 @@ export const timeline = {
   // tidak harus tanggal formal seperti milestone besar, boleh momen sehari-hari.
   items: [
     {
-      icon: '🍼',
+      icon: '👧',
       note: 'Dulu',
       desc: 'Waktu kecil aku belum tahu bahwa semua kasih sayang dan perhatian Mama lahir dari rasa cinta yang Mama pupuk setiap hari.',
     },
