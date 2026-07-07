@@ -61,7 +61,6 @@ export const cover = {
 export const garden = {
   numeral: '01',
   title: 'Hal-Hal yang Selalu Aku Ingat dari Mama',
-  hint: 'Ketuk setiap Pucuknya ya, Ma',
   // TODO: Sesuaikan dengan hal-hal spesifik yang customer dan keluarga sukai dari Mama.
   items: [
     {
@@ -206,7 +205,6 @@ export const finalBloom = {
   message:
     'Semoga langkah Mama dimudahkan, semua doa Mama perlahan dikabulkan, dan hari-hari Mama senantiasa dipenuhi ketenangan.',
   blessingLine: 'Barakallah fii umrik, Mama.',
-  fromLine: 'Dari Amel, dengan Penuh Cinta.',
   replayLabel: 'Baca ulang',
   // Quiet closing signature — replaces the old separate Footer section.
   signature: 'Dari Amel, Untuk Mama.',
